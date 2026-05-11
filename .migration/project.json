@@ -1,6 +1,10 @@
 {
+  "previewOrg": "nishant-adobe",
+  "previewSite": "abbvie-linzess-eds",
   "type": "xwalk",
   "contentHostUrl": "author-p160552-e1944799.adobeaemcloud.com",
-  "previewOrg": "nishant-adobe",
-  "previewSite": "abbvie-linzess-eds"
+  "aemSitePath": "/content/multirepo-linzess",
+  "aemAssetsFolderPath": "/content/dam/multirepo-linzess",
+  "aemSiteName": "multirepo-linzess",
+  "aemSiteTitle": "Linzess"
 }
