@@ -1,9 +1,9 @@
 # Your Project's Title...
-Your project's description...
+AbbVie - Linzess
 
 ## Environments
-- Preview: https://main--{repo}--{owner}.aem.page/
-- Live: https://main--{repo}--{owner}.aem.live/
+- Preview: https://main--abbvie-linzess-eds--nishant-adobe.aem.page/
+- Live: https://main--abbvie-linzess-eds--nishant-adobe.aem.live/
 
 ## Documentation
 
