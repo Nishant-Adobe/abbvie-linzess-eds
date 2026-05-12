@@ -1,8 +1,0 @@
-{
-  "mappings": [
-    "/content/multirepo-linzess/:/"
-  ],
-  "includes": [
-    "/content/multirepo-linzess/"
-  ]
-}
