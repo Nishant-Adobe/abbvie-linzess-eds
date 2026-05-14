@@ -113,6 +113,36 @@
           }
         },
         {
+          "title": "Cards Promo",
+          "id": "cards-promo",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Cards Promo",
+                  "filter": "cards-promo"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Card Promo",
+          "id": "card-promo",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Card Promo",
+                  "model": "card-promo"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Cards Resource",
           "id": "cards-resource",
           "plugins": {
@@ -218,6 +248,21 @@
           }
         },
         {
+          "title": "Columns Quiz",
+          "id": "columns-quiz",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/columns/v1/columns",
+                "template": {
+                  "columns": "2",
+                  "rows": "1"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Columns Savings",
           "id": "columns-savings",
           "plugins": {
@@ -263,6 +308,21 @@
           }
         },
         {
+          "title": "Hero Home",
+          "id": "hero-home",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Hero Home",
+                  "model": "hero-home"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Hero Resources",
           "id": "hero-resources",
           "plugins": {
@@ -287,6 +347,36 @@
                 "template": {
                   "name": "Hero",
                   "model": "hero"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Stats",
+          "id": "stats",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Stats",
+                  "filter": "stats"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Stat Item",
+          "id": "stat-item",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Stat Item",
+                  "model": "stat-item"
                 }
               }
             }

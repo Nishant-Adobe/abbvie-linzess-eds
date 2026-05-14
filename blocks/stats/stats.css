@@ -1,0 +1,62 @@
+.stats > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.stats > ul > li {
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  background-color: var(--color-brand-purple-light);
+}
+
+.stats > ul > li:nth-child(even) {
+  background-color: #f5f5f5;
+}
+
+.stats .stats-card-body p:first-child {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  font-family: var(--font-family-body);
+  font-weight: 700;
+  color: var(--color-brand-purple);
+  background-color: #f5f5f5;
+  line-height: 1.1;
+}
+
+.stats .stats-card-body p:last-child {
+  font-family: var(--font-family-body);
+  font-size: var(--body-font-size-s);
+  color: var(--color-brand-purple);
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 0;
+  max-width: 280px;
+  margin-inline: auto;
+}
+
+.stats > ul > li:nth-child(even) .stats-card-body p:first-child {
+  background-color: var(--color-brand-purple-light);
+}
+
+@media (width >= 900px) {
+  .stats > ul {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .stats > ul > li {
+    flex: 1;
+    padding: 40px 24px;
+  }
+}

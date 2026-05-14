@@ -64,14 +64,18 @@
         "button",
         "title",
         "hero",
+        "hero-home",
         "hero-resources",
         "cards",
+        "cards-promo",
         "cards-article",
         "cards-tips",
         "cards-resource",
         "columns",
+        "columns-quiz",
         "columns-doctor-cta",
         "columns-savings",
+        "stats",
         "video-cards",
         "fragment"
       ]

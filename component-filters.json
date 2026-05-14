@@ -13,14 +13,18 @@
       "button",
       "title",
       "hero",
+      "hero-home",
       "hero-resources",
       "cards",
+      "cards-promo",
       "cards-article",
       "cards-tips",
       "cards-resource",
       "columns",
+      "columns-quiz",
       "columns-doctor-cta",
       "columns-savings",
+      "stats",
       "video-cards",
       "fragment"
     ]
@@ -29,6 +33,12 @@
     "id": "cards-article",
     "components": [
       "card-article"
+    ]
+  },
+  {
+    "id": "cards-promo",
+    "components": [
+      "card-promo"
     ]
   },
   {
@@ -65,6 +75,12 @@
     ]
   },
   {
+    "id": "columns-quiz",
+    "components": [
+      "column"
+    ]
+  },
+  {
     "id": "columns-savings",
     "components": [
       "column"
@@ -92,6 +108,12 @@
       "image",
       "button",
       "title"
+    ]
+  },
+  {
+    "id": "stats",
+    "components": [
+      "stat-item"
     ]
   },
   {
