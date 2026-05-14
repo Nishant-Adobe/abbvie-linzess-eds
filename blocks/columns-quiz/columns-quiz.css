@@ -1,0 +1,33 @@
+.columns-quiz > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.columns-quiz img {
+  width: 100%;
+}
+
+.columns-quiz > div > div {
+  order: 1;
+}
+
+.columns-quiz > div > .columns-quiz-img-col {
+  order: 0;
+}
+
+.columns-quiz > div > .columns-quiz-img-col img {
+  display: block;
+}
+
+@media (width >= 900px) {
+  .columns-quiz > div {
+    align-items: center;
+    flex-direction: unset;
+    gap: 24px;
+  }
+
+  .columns-quiz > div > div {
+    flex: 1;
+    order: unset;
+  }
+}

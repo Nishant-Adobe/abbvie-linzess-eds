@@ -1,0 +1,40 @@
+{
+  "variantName": "stats",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-05-14T09:10:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.linzess.com/",
+    "originPage": "homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "spacious",
+    "purpose": "statistics-counters",
+    "imagePattern": "noimg",
+    "structure": "large number in circle badge + descriptive text per card"
+  },
+  "contentPattern": {
+    "structure": "3 stat cards, each with large number + unit + descriptive bold text with superscript references",
+    "buttonCount": 0,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "statistics or data highlight sections",
+      "prevalence/population counter displays",
+      "key metrics showcase sections"
+    ],
+    "notSuitableFor": [
+      "image-based card grids",
+      "product listing cards",
+      "testimonial cards"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-05-14T09:10:00.000Z"
+  }
+}

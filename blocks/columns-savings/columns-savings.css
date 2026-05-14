@@ -1,0 +1,33 @@
+.columns-savings > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.columns-savings img {
+  width: 100%;
+}
+
+.columns-savings > div > div {
+  order: 1;
+}
+
+.columns-savings > div > .columns-savings-img-col {
+  order: 0;
+}
+
+.columns-savings > div > .columns-savings-img-col img {
+  display: block;
+}
+
+@media (width >= 900px) {
+  .columns-savings > div {
+    align-items: center;
+    flex-direction: unset;
+    gap: 24px;
+  }
+
+  .columns-savings > div > div {
+    flex: 1;
+    order: unset;
+  }
+}
