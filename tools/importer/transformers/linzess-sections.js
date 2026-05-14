@@ -3,35 +3,43 @@
 
 /**
  * Transformer: Linzess section breaks and section-metadata.
- * Inserts <hr> section dividers and Section Metadata blocks based on template sections.
- * All selectors validated against migration-work/cleaned.html.
+ * Inserts <hr> elements between sections and adds Section Metadata blocks
+ * for sections that have a style defined in the template.
+ * Runs in afterTransform only.
+ * All selectors from page-templates.json, validated against migration-work/cleaned.html.
  */
-const TransformHook = { beforeTransform: 'beforeTransform', afterTransform: 'afterTransform' };
+const H = { before: 'beforeTransform', after: 'afterTransform' };
 
 export default function transform(hookName, element, payload) {
-  if (hookName === TransformHook.afterTransform) {
+  if (hookName === H.after) {
     const { document } = payload;
-    const sections = payload.template && payload.template.sections;
+    const template = payload.template;
 
-    if (!sections || sections.length < 2) return;
+    if (!template || !template.sections || template.sections.length < 2) {
+      return;
+    }
 
-    // Process sections in reverse order to preserve DOM positions
+    const sections = template.sections;
+
+    // Process sections in reverse order to avoid DOM position shifts
     for (let i = sections.length - 1; i >= 0; i--) {
       const section = sections[i];
       const sectionEl = element.querySelector(section.selector);
 
-      if (!sectionEl) continue;
+      if (!sectionEl) {
+        continue;
+      }
 
-      // Add Section Metadata block after the section element if style is defined
+      // Add Section Metadata block after the section element if it has a style
       if (section.style) {
-        const metadataBlock = WebImporter.Blocks.createBlock(document, {
+        const metaBlock = WebImporter.Blocks.createBlock(document, {
           name: 'Section Metadata',
           cells: { style: section.style },
         });
-        sectionEl.after(metadataBlock);
+        sectionEl.after(metaBlock);
       }
 
-      // Add <hr> before section element (except for the first section)
+      // Insert <hr> before the section element (except for the first section)
       if (i > 0) {
         const hr = document.createElement('hr');
         sectionEl.before(hr);

@@ -2,158 +2,117 @@
 /* global WebImporter */
 
 /**
- * Parser for video-cards variant.
+
+ * Parser: video-cards
  * Base block: video-cards
  * Source: https://www.linzess.com/
  * Generated: 2026-05-14
  *
- * Extracts Brightcove video testimonial cards from the source DOM.
- * Each card contains a poster image, title, patient quote, and transcript link.
- * Source structure: .flexbox-video-cards.home-flexbox-column > .flexboxitem-v2 > .abbv-flex-item-v2
+ * Extracts Brightcove video testimonial cards. Each card has:
+ * - Video poster image (from video[poster], .vjs-poster img, or background-image)
+ * - H3 title (patient name's LINZESS story)
+ * - Quote text with patient info (name, age, condition)
+ * - View Transcript link
  *
- * UE Model: video-card (container block)
- *   - image (reference): Video poster image
- *   - text (richtext): Title + quote + transcript link
+ * Output: One row per card, 2 columns per row:
+ *   Col 1: poster image
+ *   Col 2: title + quote + transcript link
  */
 export default function parse(element, { document }) {
-  // Video IDs mapped by title keyword for Brightcove embed URL generation
-  const videoMap = {
-    dian: { videoId: '6391876000112', account: '1029485116001' },
-    nan: { videoId: '6391877481112', account: '1029485116001' },
-    julie: { videoId: '6391878649112', account: '1029485116001' },
-  };
-
-  // Find all video card items
-  const cardItems = element.querySelectorAll('.flexboxitem-v2 .abbv-flex-item-v2');
+  // Each card is a .flexboxitem-v2 or direct child with .abbv-flex-item-v2
+  const cards = element.querySelectorAll('.flexboxitem-v2, :scope > .abbv-flex-item-v2');
   const cells = [];
 
-  cardItems.forEach((card) => {
-    // Extract poster image - try multiple selectors for Brightcove poster
+  cards.forEach((card) => {
+    // Column 1: Poster image - try multiple sources for robustness
+    let posterSrc = '';
+
+    // Try 1: img element inside .vjs-poster or video container
     const posterImg = card.querySelector('.vjs-poster img, .abbv-video-container img, video-js img');
-    // Fallback: try to get poster from video element attribute
-    const videoEl = card.querySelector('video-js');
+    if (posterImg && posterImg.getAttribute('src')) {
+      posterSrc = posterImg.getAttribute('src');
+    }
 
-    // Extract content from .abbv-video-content area
-    const contentArea = card.querySelector('.abbv-video-content');
-    if (!contentArea) return;
-
-    const title = contentArea.querySelector('h3');
-    const transcriptLink = contentArea.querySelector('a.transcript-link, a[href*="transcript"]');
-
-    // Determine Brightcove video info from title text
-    const titleText = title ? title.textContent.toLowerCase() : '';
-    let videoInfo = null;
-    for (const [key, info] of Object.entries(videoMap)) {
-      if (titleText.includes(key)) {
-        videoInfo = info;
-        break;
+    // Try 2: video element poster attribute
+    if (!posterSrc) {
+      const videoEl = card.querySelector('video[poster]');
+      if (videoEl) {
+        posterSrc = videoEl.getAttribute('poster');
       }
     }
 
-    // Build image cell with field hint
-    const imageCell = document.createDocumentFragment();
-    imageCell.appendChild(document.createComment(' field:image '));
-
-    // Get poster image src - check multiple sources
-    let posterSrc = null;
-    if (posterImg) {
-      posterSrc = posterImg.getAttribute('src') || posterImg.src;
+    // Try 3: .vjs-poster background-image style
+    if (!posterSrc) {
+      const posterDiv = card.querySelector('.vjs-poster');
+      if (posterDiv) {
+        const style = posterDiv.getAttribute('style') || '';
+        const bgMatch = style.match(/background-image:\s*url\(["']?([^"')]+)["']?\)/);
+        if (bgMatch) {
+          posterSrc = bgMatch[1];
+        }
+      }
     }
 
-    if (posterSrc && posterSrc !== 'null' && !posterSrc.startsWith('data:')) {
+    const imageCell = [];
+    if (posterSrc) {
       const img = document.createElement('img');
       img.src = posterSrc;
-      img.alt = title ? title.textContent.trim() : 'Video poster';
-      if (videoInfo) {
-        img.setAttribute('data-video-id', videoInfo.videoId);
-        img.setAttribute('data-account', videoInfo.account);
-      }
-      imageCell.appendChild(img);
-    } else if (videoInfo) {
-      // No usable poster image found - create with Brightcove video data attributes
-      const img = document.createElement('img');
-      img.src = `/media/video-poster-${videoInfo.videoId}.jpg`;
-      img.alt = title ? title.textContent.trim() : 'Video poster';
-      img.setAttribute('data-video-id', videoInfo.videoId);
-      img.setAttribute('data-account', videoInfo.account);
-      imageCell.appendChild(img);
+      const frag = document.createDocumentFragment();
+      frag.appendChild(document.createComment(' field:image '));
+      frag.appendChild(img);
+      imageCell.push(frag);
     }
 
-    // Build text cell with field hint - combines title, quote, and transcript link
-    const textCell = document.createDocumentFragment();
-    textCell.appendChild(document.createComment(' field:text '));
+    // Column 2: Content (title, quote, transcript link)
+    const contentContainer = card.querySelector('.abbv-video-content');
+    const contentCell = [];
 
-    if (title) {
-      const h3 = document.createElement('h3');
-      h3.textContent = title.textContent.trim();
-      textCell.appendChild(h3);
-    }
-
-    // Extract quote and patient info from .abbv-video-content
-    // In the live DOM, the structure is: h3, then <p> elements, then <a>
-    // The quote paragraph contains spans with patient name/age and condition.
-    // Also check vjs-dock-text for fallback quote content.
-    const allParagraphs = contentArea.querySelectorAll('p');
-    let quoteFound = false;
-
-    allParagraphs.forEach((p) => {
-      if (quoteFound) return;
-      const spans = p.querySelectorAll('span');
-      const text = p.textContent.trim();
-      if (!text) return;
-
-      // Find the paragraph with spans (patient info) - this is our quote paragraph
-      if (spans.length > 0) {
-        quoteFound = true;
-        const para = document.createElement('p');
-
-        // Extract quote text by subtracting span content from full paragraph text
-        let quoteText = text;
-        spans.forEach((span) => {
-          quoteText = quoteText.replace(span.textContent, '');
-        });
-        quoteText = quoteText.trim();
-
-        if (quoteText) {
-          para.appendChild(document.createTextNode(quoteText));
-        }
-
-        // Add patient info from spans
-        spans.forEach((span) => {
-          const spanText = span.textContent.trim();
-          if (spanText) {
-            para.appendChild(document.createElement('br'));
-            para.appendChild(document.createTextNode(spanText));
-          }
-        });
-
-        if (para.textContent.trim()) {
-          textCell.appendChild(para);
-        }
+    if (contentContainer) {
+      // Title (h3)
+      const title = contentContainer.querySelector('h3');
+      if (title) {
+        const titleFrag = document.createDocumentFragment();
+        titleFrag.appendChild(document.createComment(' field:title '));
+        const h3 = document.createElement('h3');
+        h3.textContent = title.textContent.trim();
+        titleFrag.appendChild(h3);
+        contentCell.push(titleFrag);
       }
-    });
 
-    // Fallback: if no quote found in paragraphs, try vjs-dock-text
-    if (!quoteFound) {
-      const dockDesc = card.querySelector('.vjs-dock-description');
-      if (dockDesc) {
-        const descText = dockDesc.textContent.trim();
-        if (descText) {
-          const para = document.createElement('p');
-          para.textContent = descText;
-          textCell.appendChild(para);
+      // Quote text with patient info - find paragraphs with actual content
+      const paragraphs = contentContainer.querySelectorAll('p');
+      let quoteText = '';
+      paragraphs.forEach((p) => {
+        const text = p.textContent.trim();
+        if (text && text.length > 1 && !quoteText) {
+          quoteText = text;
         }
+      });
+      if (quoteText) {
+        const quoteFrag = document.createDocumentFragment();
+        quoteFrag.appendChild(document.createComment(' field:description '));
+        const p = document.createElement('p');
+        p.textContent = quoteText;
+        quoteFrag.appendChild(p);
+        contentCell.push(quoteFrag);
+      }
+
+      // Transcript link
+      const transcriptLink = contentContainer.querySelector('a.transcript-link, a[href*="transcript"]');
+      if (transcriptLink) {
+        const linkFrag = document.createDocumentFragment();
+        linkFrag.appendChild(document.createComment(' field:link '));
+        const a = document.createElement('a');
+        a.href = transcriptLink.getAttribute('href') || transcriptLink.href;
+        a.textContent = transcriptLink.textContent.trim();
+        linkFrag.appendChild(a);
+        contentCell.push(linkFrag);
       }
     }
 
-    if (transcriptLink) {
-      const link = document.createElement('a');
-      link.href = transcriptLink.getAttribute('href');
-      link.textContent = transcriptLink.textContent.trim();
-      textCell.appendChild(link);
+    if (imageCell.length || contentCell.length) {
+      cells.push([imageCell, contentCell]);
     }
-
-    cells.push([imageCell, textCell]);
   });
 
   const block = WebImporter.Blocks.createBlock(document, { name: 'video-cards', cells });

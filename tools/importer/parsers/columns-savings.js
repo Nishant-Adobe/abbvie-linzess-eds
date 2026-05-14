@@ -5,61 +5,53 @@
  * Parser: columns-savings
  * Base block: columns
  * Selector: .savings-card-tout
- * Description: 2-column savings offer layout with product image (left) and
- *   heading + description + CTA links (right).
+ * Description: 2-column savings offer layout. Left column has product image,
+ * right column has heading, description, primary CTA, and secondary link.
+ * xwalk project: Columns blocks do NOT require field hint comments per hinting rules.
  * Generated: 2026-05-14
  */
 export default function parse(element, { document }) {
-  // Left column: product savings image
-  const image = element.querySelector('.abbv-col:first-child img, .abbv-col-6:first-child img');
+  // Left column: product image
+  const cols = element.querySelectorAll('.abbv-col, [class*="abbv-col-6"]');
+  const leftCol = cols[0];
+  const image = leftCol ? leftCol.querySelector('picture, img') : element.querySelector('picture, img');
 
-  // Right column container
-  const rightCol = element.querySelector('.abbv-col:nth-child(2), .abbv-col-6:nth-child(2)');
+  // Right column: heading, description, primary CTA, secondary text with link
+  const rightCol = cols.length > 1 ? cols[1] : element;
+
+  // Heading: first paragraph with heading-2 class
+  const heading = rightCol.querySelector('p.heading-2, .heading-2, h2');
+
+  // Description: paragraph with mt15 class (immediately after heading)
+  const description = rightCol.querySelector('p.mt15, p.mb24');
+
+  // Primary CTA: button link in .cta container
+  const primaryCta = rightCol.querySelector('.cta a, a.abbv-button-primary, a.abbv-button-primary-v2');
+
+  // Secondary text: paragraph in the last rich-text section containing the "Activate now" link
+  const richTextSections = rightCol.querySelectorAll('.rich-text');
+  let secondaryText = null;
+  if (richTextSections.length > 1) {
+    secondaryText = richTextSections[richTextSections.length - 1].querySelector('p');
+  } else {
+    secondaryText = rightCol.querySelector('p.mb32-m');
+  }
 
   // Build left cell content
-  const leftCell = [];
-  if (image) {
-    leftCell.push(image);
-  }
+  const leftCellContent = [];
+  if (image) leftCellContent.push(image);
 
   // Build right cell content
-  const rightCell = [];
+  const rightCellContent = [];
+  if (heading) rightCellContent.push(heading);
+  if (description) rightCellContent.push(description);
+  if (primaryCta) rightCellContent.push(primaryCta);
+  if (secondaryText) rightCellContent.push(secondaryText);
 
-  if (rightCol) {
-    // Heading (p.heading-2 or similar heading element)
-    const heading = rightCol.querySelector('.heading-2, h2, [class*="heading"]');
-    if (heading) {
-      rightCell.push(heading);
-    }
-
-    // Description paragraph (non-heading paragraph within rich-text)
-    const paragraphs = rightCol.querySelectorAll('.abbv-rich-text p:not(.heading-2):not([class*="heading"])');
-    if (paragraphs.length > 0) {
-      // First non-heading paragraph is the description
-      rightCell.push(paragraphs[0]);
-    }
-
-    // Primary CTA link
-    const primaryCta = rightCol.querySelector('a.abbv-button-primary, a.abbv-button-primary-v2, .cta a');
-    if (primaryCta) {
-      rightCell.push(primaryCta);
-    }
-
-    // Secondary text with inline link ("Already have a savings card? Activate now.")
-    const secondaryTexts = rightCol.querySelectorAll('.rich-text');
-    if (secondaryTexts.length > 1) {
-      // Second rich-text block contains the secondary text
-      const secondaryP = secondaryTexts[1].querySelector('p');
-      if (secondaryP) {
-        rightCell.push(secondaryP);
-      }
-    }
-  }
-
-  // Columns block: Row 1 is block name, Row 2 is two cells (left image, right content)
-  // Per xwalk hinting rules: Columns blocks do NOT require field comments
+  // Columns block: 1 row with 2 cells (left image, right content)
+  // No field hints required for Columns blocks per xwalk hinting rules
   const cells = [
-    [leftCell, rightCell],
+    [leftCellContent, rightCellContent],
   ];
 
   const block = WebImporter.Blocks.createBlock(document, { name: 'columns-savings', cells });

@@ -2,15 +2,18 @@ export default function decorate(block) {
   const rows = [...block.children];
   if (rows.length < 2) return;
 
-  const pictureRow = rows[0];
+  const imageRow = rows[0];
   const contentRow = rows[1];
 
-  const picture = pictureRow.querySelector('picture');
-  if (picture) {
-    picture.classList.add('hero-home-bg');
-    block.prepend(picture);
-    pictureRow.remove();
+  const pic = imageRow.querySelector('picture');
+  if (pic) {
+    pic.classList.add('hero-home-bg');
+    block.prepend(pic);
   }
+  imageRow.remove();
 
-  contentRow.classList.add('hero-home-content');
+  const content = contentRow.querySelector('div');
+  if (content) {
+    content.classList.add('hero-home-content');
+  }
 }

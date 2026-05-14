@@ -10,8 +10,8 @@ import videoCardsParser from './parsers/video-cards.js';
 import columnsSavingsParser from './parsers/columns-savings.js';
 
 // TRANSFORMER IMPORTS
-import cleanupTransformer from './transformers/linzess-cleanup.js';
-import sectionsTransformer from './transformers/linzess-sections.js';
+import linzessCleanupTransformer from './transformers/linzess-cleanup.js';
+import linzessSectionsTransformer from './transformers/linzess-sections.js';
 
 // PARSER REGISTRY
 const parsers = {
@@ -110,8 +110,8 @@ const PAGE_TEMPLATE = {
 
 // TRANSFORMER REGISTRY
 const transformers = [
-  cleanupTransformer,
-  ...(PAGE_TEMPLATE.sections && PAGE_TEMPLATE.sections.length > 1 ? [sectionsTransformer] : []),
+  linzessCleanupTransformer,
+  ...(PAGE_TEMPLATE.sections && PAGE_TEMPLATE.sections.length > 1 ? [linzessSectionsTransformer] : []),
 ];
 
 function executeTransformers(hookName, element, payload) {
@@ -158,10 +158,13 @@ export default {
     const { document, url, params } = payload;
 
     const main = document.body;
-
+    // 1. Execute beforeTransform transformers (initial cleanup)
     executeTransformers('beforeTransform', main, payload);
 
+    // 2. Find blocks on page using embedded template
     const pageBlocks = findBlocksOnPage(document, PAGE_TEMPLATE);
+
+    // 3. Parse each block using registered parsers
 
     pageBlocks.forEach((block) => {
       const parser = parsers[block.name];
@@ -176,16 +179,19 @@ export default {
       }
     });
 
+    // 4. Execute afterTransform transformers (section breaks + metadata)
     executeTransformers('afterTransform', main, payload);
 
+    // 5. Apply WebImporter built-in rules
     const hr = document.createElement('hr');
     main.appendChild(hr);
     WebImporter.rules.createMetadata(main, document);
     WebImporter.rules.transformBackgroundImages(main, document);
     WebImporter.rules.adjustImageUrls(main, url, params.originalURL);
 
+    // 6. Generate sanitized path
     const path = WebImporter.FileUtils.sanitizePath(
-      new URL(params.originalURL).pathname.replace(/\/$/, '').replace(/\.html$/, '') || '/index'
+      new URL(params.originalURL).pathname.replace(/\/$/, '').replace(/\.html$/, '') || '/index',
     );
 
     return [{

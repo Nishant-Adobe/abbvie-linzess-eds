@@ -8,72 +8,53 @@
  * Selector: .hero-container.Linzess-home-hero-belly-bnr
  * Generated: 2026-05-14
  *
- * Target structure (from block library):
- *   Row 1: block name
- *   Row 2: background image
- *   Row 3: text content (eyebrow, heading, subtitle, CTA)
+ * Hero block: 1 column, 2 content rows.
+ * Row 1 (image): background image
+ * Row 2 (text): eyebrow, heading, subtitle, CTA
  *
- * UE Model fields: image (reference), imageAlt (text), text (richtext)
+ * UE Model fields: image (reference), imageAlt (collapsed), text (richtext)
  */
 export default function parse(element, { document }) {
-  // Extract background image - use the picture element for full responsive support,
-  // fall back to img if picture not found
-  const bgImage = element.querySelector('.abbv-image-content-container-v2 picture, picture');
-  const bgImgFallback = !bgImage ? element.querySelector('.abbv-image-content-container-v2 img, img') : null;
-  const imageEl = bgImage || bgImgFallback;
+  // Extract background image from picture element
+  const picture = element.querySelector('picture');
 
-  // Extract text content from the hero body
-  const cardBody = element.querySelector('.abbv-stretched-card-body, .abbv-image-text-display-v2, .abbv-image-text-content-v2');
+  // Extract eyebrow text (first p with class tl-m before the heading)
+  const eyebrow = element.querySelector('.abbv-stretched-card-body > p.tl-m');
 
-  // Build text content cell with all text elements combined in one cell
-  const textContent = [];
+  // Extract H1 heading
+  const heading = element.querySelector('h1.home-hero-title, h1, h2');
 
-  if (cardBody) {
-    // Eyebrow paragraph (first p before h1)
-    const eyebrow = cardBody.querySelector('p.tl-m, p:first-child');
-    if (eyebrow) {
-      textContent.push(eyebrow);
-    }
+  // Extract subtitle (p after the heading, with class mb15-m)
+  const subtitle = element.querySelector('p.mb15-m, .abbv-stretched-card-body > p:last-of-type');
 
-    // Main heading (h1)
-    const heading = cardBody.querySelector('h1.home-hero-title, h1, h2');
-    if (heading) {
-      textContent.push(heading);
-    }
+  // Extract CTA link
+  const cta = element.querySelector('a.abbv-button-primary, a.abbv-image-text-link, a[class*="abbv-button"]');
 
-    // Subtitle paragraph (after heading, before CTA)
-    const paragraphs = cardBody.querySelectorAll('p');
-    paragraphs.forEach((p) => {
-      // Skip the eyebrow (already added) and include subtitle
-      if (p !== eyebrow && !p.querySelector('a')) {
-        textContent.push(p);
-      }
-    });
-
-    // CTA link(s)
-    const ctas = cardBody.querySelectorAll('a.abbv-button-primary, a.abbv-button-secondary, a[class*="abbv-button"]');
-    ctas.forEach((cta) => {
-      // Wrap standalone anchor in a paragraph for proper block rendering
-      const p = document.createElement('p');
-      p.appendChild(cta);
-      textContent.push(p);
-    });
-  }
-
-  // Build cells array matching block library structure:
-  // Each entry in cells is a row; each row is an array of cell contents.
-  // A single-column row with multiple elements uses [[el1, el2, ...]]
+  // Build cells matching block library structure:
+  // Row 1: background image with field hint
+  // Row 2: text content (eyebrow + heading + subtitle + CTA) with field hint
   const cells = [];
 
-  // Row 2: background image (single cell)
-  if (imageEl) {
-    cells.push([imageEl]);
+  // Row 1: Image cell with field:image hint
+  const imageCell = document.createDocumentFragment();
+  imageCell.appendChild(document.createComment(' field:image '));
+  if (picture) {
+    imageCell.appendChild(picture);
   }
+  cells.push([imageCell]);
 
-  // Row 3: text content in a single cell (eyebrow, heading, subtitle, CTA)
-  if (textContent.length > 0) {
-    cells.push([textContent]);
+  // Row 2: Text content cell with field:text hint
+  const textCell = document.createDocumentFragment();
+  textCell.appendChild(document.createComment(' field:text '));
+  if (eyebrow) textCell.appendChild(eyebrow);
+  if (heading) textCell.appendChild(heading);
+  if (subtitle) textCell.appendChild(subtitle);
+  if (cta) {
+    const p = document.createElement('p');
+    p.appendChild(cta);
+    textCell.appendChild(p);
   }
+  cells.push([textCell]);
 
   const block = WebImporter.Blocks.createBlock(document, { name: 'hero-home', cells });
   element.replaceWith(block);

@@ -1,49 +1,48 @@
 /* eslint-disable */
 /* global WebImporter */
+
 /**
- * Parser for stats variant.
- * Base block: stats (container block with stat-item children)
- * Source: https://www.linzess.com/
- * Selector: .flexbox-cards.c-dark-purple.margin-top-80
+ * Parser: stats
+ * Base block: stats
+ * Description: Multiple stat counter cards with circle badge numbers and descriptive text.
+ *              Each card becomes one row with a single cell containing the number paragraph
+ *              and the description paragraph.
+ * Source selector: .flexbox-cards.c-dark-purple.margin-top-80
  * Generated: 2026-05-14
- *
- * Each stat card has a circle badge with number + "million" text
- * and a description paragraph. Produces one row per stat item
- * with a single column containing the rich text content.
  */
 export default function parse(element, { document }) {
-  // Each stat card is inside .flexboxitem-v2 > .abbv-flex-item-v2
-  const statCards = element.querySelectorAll('.flexboxitem-v2 .abbv-flex-item-v2');
+  // Each stat card is a .flexboxitem-v2 containing rich text with two paragraphs:
+  // 1. p.circle - the badge number (e.g., "11.5 million")
+  // 2. p.mb24-m - the descriptive text (e.g., "people suffer from IBS-C...")
+  const cards = element.querySelectorAll(':scope > .flexboxitem-v2');
 
   const cells = [];
 
-  statCards.forEach((card) => {
-    // Extract the rich text container with the stat number and description
-    const richTextContainer = card.querySelector('.abbv-rich-text');
-    if (!richTextContainer) return;
+  cards.forEach((card) => {
+    const richText = card.querySelector('.abbv-rich-text');
+    if (!richText) return;
 
-    // Get the circle badge paragraph (number) and description paragraph
-    const circleBadge = richTextContainer.querySelector('p.circle');
-    const description = richTextContainer.querySelector('p.mb24-m');
+    // Get the circle badge paragraph (number)
+    const numberParagraph = richText.querySelector('p.circle, p[class*="circle"]');
+    // Get the description paragraph
+    const descriptionParagraph = richText.querySelector('p.mb24-m, p:not(.circle):not([class*="circle"])');
 
-    // Build the cell content with field hint for xwalk
-    const frag = document.createDocumentFragment();
-    frag.appendChild(document.createComment(' field:text '));
+    const cellContent = [];
 
-    if (circleBadge) {
-      const clonedBadge = circleBadge.cloneNode(true);
-      frag.appendChild(clonedBadge);
+    if (numberParagraph) {
+      cellContent.push(numberParagraph);
     }
 
-    if (description) {
-      const clonedDesc = description.cloneNode(true);
-      frag.appendChild(clonedDesc);
+    if (descriptionParagraph) {
+      cellContent.push(descriptionParagraph);
     }
 
-    // Single column per row (container block: each child item = one row)
-    cells.push([frag]);
+    // Single column per row: both paragraphs in one cell
+    if (cellContent.length > 0) {
+      cells.push([cellContent]);
+    }
+
   });
-
   const block = WebImporter.Blocks.createBlock(document, { name: 'stats', cells });
   element.replaceWith(block);
 }
