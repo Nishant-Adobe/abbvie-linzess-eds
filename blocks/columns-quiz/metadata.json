@@ -1,0 +1,40 @@
+{
+  "variantName": "columns-quiz",
+  "baseBlock": "columns",
+  "version": "1.0.0",
+  "created": "2026-05-14T09:10:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.linzess.com/",
+    "originPage": "homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "quiz-cta",
+    "imagePattern": "large",
+    "structure": "image with overlay + heading + description + CTA"
+  },
+  "contentPattern": {
+    "structure": "2-column: image (with overlay disclaimer) + text content (heading + paragraph + CTA)",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "quiz or assessment call-to-action sections",
+      "two-column layouts with lifestyle image and action text",
+      "engagement sections with image and CTA"
+    ],
+    "notSuitableFor": [
+      "simple text-only columns",
+      "multi-column data comparisons",
+      "savings/product offer layouts"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-05-14T09:10:00.000Z"
+  }
+}

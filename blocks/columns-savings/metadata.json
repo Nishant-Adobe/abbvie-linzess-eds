@@ -1,0 +1,40 @@
+{
+  "variantName": "columns-savings",
+  "baseBlock": "columns",
+  "version": "1.0.0",
+  "created": "2026-05-14T09:10:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.linzess.com/",
+    "originPage": "homepage",
+    "blockPosition": "bottom"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "savings-offer",
+    "imagePattern": "large",
+    "structure": "product image + heading + description + CTA + secondary link"
+  },
+  "contentPattern": {
+    "structure": "2-column: product/savings image + text content (heading + description + CTA + secondary link)",
+    "buttonCount": 2,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "savings card or coupon promotional sections",
+      "product offer layouts with image and details",
+      "two-column marketing CTAs with product imagery"
+    ],
+    "notSuitableFor": [
+      "quiz or engagement sections",
+      "simple text columns",
+      "multi-item comparison layouts"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-05-14T09:10:00.000Z"
+  }
+}
