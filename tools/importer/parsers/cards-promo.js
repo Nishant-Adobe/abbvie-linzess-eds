@@ -14,6 +14,7 @@
  * UE Model: container block "cards" with child "card" items
  * Each card row: [image cell] [text cell]
  * Fields: image (reference), text (richtext)
+
  */
 export default function parse(element, { document }) {
   const cells = [];
@@ -43,6 +44,7 @@ export default function parse(element, { document }) {
       const heading = item.querySelector('.abbv-stretched-card-body .heading-2, .abbv-stretched-card-body h2');
       const description = item.querySelector('.abbv-stretched-card-body p:not(.heading-2):not([class*="heading"])');
       const cta = item.querySelector('.cta a, a.abbv-button-primary, a.abbv-button-secondary');
+
 
       // Build image cell with field hint
       const imageCell = document.createDocumentFragment();

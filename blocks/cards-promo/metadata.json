@@ -1,0 +1,40 @@
+{
+  "variantName": "cards-promo",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-05-14T09:10:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.linzess.com/",
+    "originPage": "homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "colored",
+    "density": "compact",
+    "purpose": "promotional-cards",
+    "imagePattern": "icon",
+    "structure": "icon + heading + description + CTA"
+  },
+  "contentPattern": {
+    "structure": "icon image + heading + description paragraph + CTA button per card",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "promotional card grids with icons and CTAs",
+      "feature highlight sections with colored backgrounds",
+      "marketing landing page card rows"
+    ],
+    "notSuitableFor": [
+      "simple image + text article cards",
+      "product listing cards",
+      "team member cards"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-05-14T09:10:00.000Z"
+  }
+}

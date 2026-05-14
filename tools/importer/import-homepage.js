@@ -158,7 +158,6 @@ export default {
     const { document, url, params } = payload;
 
     const main = document.body;
-
     // 1. Execute beforeTransform transformers (initial cleanup)
     executeTransformers('beforeTransform', main, payload);
 
@@ -166,6 +165,7 @@ export default {
     const pageBlocks = findBlocksOnPage(document, PAGE_TEMPLATE);
 
     // 3. Parse each block using registered parsers
+
     pageBlocks.forEach((block) => {
       const parser = parsers[block.name];
       if (parser) {

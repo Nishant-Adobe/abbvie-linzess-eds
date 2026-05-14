@@ -2,6 +2,7 @@
 /* global WebImporter */
 
 /**
+
  * Parser: video-cards
  * Base block: video-cards
  * Source: https://www.linzess.com/

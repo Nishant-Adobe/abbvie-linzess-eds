@@ -41,8 +41,8 @@ export default function parse(element, { document }) {
     if (cellContent.length > 0) {
       cells.push([cellContent]);
     }
-  });
 
+  });
   const block = WebImporter.Blocks.createBlock(document, { name: 'stats', cells });
   element.replaceWith(block);
 }
