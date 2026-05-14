@@ -34,6 +34,17 @@
   line-height: 1.1;
 }
 
+.stats .stats-card-body p:last-child {
+  font-family: var(--font-family-body);
+  font-size: var(--body-font-size-s);
+  color: var(--color-brand-purple);
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 0;
+  max-width: 280px;
+  margin-inline: auto;
+}
+
 .stats > ul > li:nth-child(even) .stats-card-body p:first-child {
   background-color: var(--color-brand-purple-light);
 }
@@ -46,17 +57,6 @@
 .stats .stats-card-body p:first-child b span {
   font-size: 2.5rem;
   display: block;
-}
-
-.stats .stats-card-body p:last-child {
-  font-family: var(--font-family-body);
-  font-size: var(--body-font-size-s);
-  color: var(--color-brand-purple);
-  font-weight: 700;
-  line-height: 1.4;
-  margin: 0;
-  max-width: 280px;
-  margin-inline: auto;
 }
 
 @media (width >= 900px) {
