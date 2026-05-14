@@ -1,0 +1,40 @@
+{
+  "variantName": "hero-home",
+  "baseBlock": "hero",
+  "version": "1.0.0",
+  "created": "2026-05-14T09:10:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.linzess.com/",
+    "originPage": "homepage",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "spacious",
+    "purpose": "homepage-hero",
+    "imagePattern": "large",
+    "structure": "eyebrow + heading + subtitle + CTA"
+  },
+  "contentPattern": {
+    "structure": "eyebrow + h1 + subtitle + CTA button",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "homepage landing sections",
+      "campaign pages with full-width hero imagery",
+      "pages needing eyebrow text + heading + subtitle pattern"
+    ],
+    "notSuitableFor": [
+      "interior pages with simple text hero",
+      "FAQ page heroes with minimal content",
+      "pages without background imagery"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-05-14T09:10:00.000Z"
+  }
+}

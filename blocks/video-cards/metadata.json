@@ -1,0 +1,40 @@
+{
+  "variantName": "video-cards",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-05-14T09:10:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.linzess.com/",
+    "originPage": "homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "spacious",
+    "purpose": "video-testimonials",
+    "imagePattern": "large",
+    "structure": "video poster + title + quote + transcript link per card"
+  },
+  "contentPattern": {
+    "structure": "3 video cards, each with poster image (16:9), H3 title, quote paragraph, patient info, transcript link",
+    "buttonCount": 0,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "patient testimonial video galleries",
+      "video card grids with poster images",
+      "video content showcase sections"
+    ],
+    "notSuitableFor": [
+      "single video embeds",
+      "image-only card grids",
+      "text-only content cards"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-05-14T09:10:00.000Z"
+  }
+}
