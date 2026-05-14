@@ -39,7 +39,7 @@
           "component": "richtext",
           "name": "text",
           "value": "",
-          "label": "Stat Content",
+          "label": "Text",
           "valueType": "string"
         }
       ]

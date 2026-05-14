@@ -15,7 +15,6 @@
 
 .video-cards .video-cards-poster {
   line-height: 0;
-  position: relative;
 }
 
 .video-cards .video-cards-poster img {
@@ -24,28 +23,36 @@
   object-fit: cover;
 }
 
-.video-cards .video-cards-body {
-  padding: 20px 24px;
+.video-cards .video-cards-title {
+  padding: 16px 24px 0;
 }
 
-.video-cards .video-cards-body h3 {
+.video-cards .video-cards-title h3 {
   font-family: var(--font-family-heading);
   font-size: var(--heading-font-size-l);
   color: var(--color-brand-purple);
   text-transform: uppercase;
-  margin: 0 0 8px;
+  margin: 0;
   line-height: 1.1;
 }
 
-.video-cards .video-cards-body p {
+.video-cards .video-cards-description {
+  padding: 8px 24px;
+}
+
+.video-cards .video-cards-description p {
   font-family: var(--font-family-body);
   font-size: var(--body-font-size-xs);
   color: var(--color-text-primary);
   line-height: 1.4;
-  margin: 0 0 12px;
+  margin: 0;
 }
 
-.video-cards .video-cards-body a {
+.video-cards .video-cards-link {
+  padding: 0 24px 20px;
+}
+
+.video-cards .video-cards-link a {
   color: var(--color-link);
   font-weight: 800;
   font-size: var(--body-font-size-s);

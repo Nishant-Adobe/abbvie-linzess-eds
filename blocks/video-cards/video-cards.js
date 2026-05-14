@@ -5,14 +5,12 @@ export default function decorate(block) {
   [...block.children].forEach((row) => {
     const li = document.createElement('li');
     moveInstrumentation(row, li);
+    const cols = [...row.children];
+    if (cols[0]) cols[0].className = 'video-cards-poster';
+    if (cols[1]) cols[1].className = 'video-cards-title';
+    if (cols[2]) cols[2].className = 'video-cards-description';
+    if (cols[3]) cols[3].className = 'video-cards-link';
     while (row.firstElementChild) li.append(row.firstElementChild);
-    [...li.children].forEach((div) => {
-      if (div.children.length === 1 && div.querySelector('picture')) {
-        div.className = 'video-cards-poster';
-      } else {
-        div.className = 'video-cards-body';
-      }
-    });
     ul.append(li);
   });
   block.replaceChildren(ul);

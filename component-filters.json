@@ -13,8 +13,14 @@
       "button",
       "title",
       "hero",
+      "hero-home",
       "cards",
+      "cards-promo",
       "columns",
+      "columns-quiz",
+      "columns-savings",
+      "stats",
+      "video-cards",
       "fragment"
     ]
   },
@@ -37,27 +43,9 @@
     ]
   },
   {
-    "id": "column",
-    "components": [
-      "text",
-      "image",
-      "button",
-      "title"
-    ]
-  },
-  {
     "id": "columns-savings",
     "components": [
       "column"
-    ]
-  },
-  {
-    "id": "column",
-    "components": [
-      "text",
-      "image",
-      "button",
-      "title"
     ]
   },
   {
