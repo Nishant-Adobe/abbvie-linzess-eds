@@ -1,0 +1,46 @@
+{
+  "metadata": {
+    "projectType": "xwalk"
+  },
+  "templates": [
+    {
+      "name": "sitemap",
+      "urls": [
+        "https://www.linzess.com/sitemap"
+      ],
+      "description": "Sitemap page with categorized navigation links in columns layout and ISI regulatory content",
+      "blocks": [
+        {
+          "name": "columns",
+          "instances": [".abbv-row-container.sitemap-col"]
+        }
+      ],
+      "sections": [
+        {
+          "id": "section-1-header",
+          "name": "Sitemap Header",
+          "selector": ".abbv-rich-text.text-align-center",
+          "style": null,
+          "blocks": [],
+          "defaultContent": [".divider", "h1.c-linz-dark-purple"]
+        },
+        {
+          "id": "section-2-columns",
+          "name": "Sitemap Link Columns",
+          "selector": ".linzess-sitemap",
+          "style": null,
+          "blocks": ["columns"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-3-isi",
+          "name": "ISI (Important Safety Information)",
+          "selector": ".abbv-inline-use-isi",
+          "style": null,
+          "blocks": [],
+          "defaultContent": [".linzess-use-statement h3", ".linzess-use-statement p", ".linzess-isi-iri h3", ".linzess-isi-iri ul", ".linzess-isi-iri p"]
+        }
+      ]
+    }
+  ]
+}
