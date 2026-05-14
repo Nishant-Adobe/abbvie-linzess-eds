@@ -1,4 +1,4 @@
-.video-cards > ul {
+.cards-tips > ul {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -7,20 +7,20 @@
   gap: 24px;
 }
 
-.video-cards > ul > li {
+.cards-tips > ul > li {
   border: 1px solid #dadada;
   background-color: var(--background-color);
 }
 
-.video-cards .video-cards-card-body {
+.cards-tips .cards-tips-card-body {
   margin: 16px;
 }
 
-.video-cards .video-cards-card-image {
+.cards-tips .cards-tips-card-image {
   line-height: 0;
 }
 
-.video-cards > ul > li img {
+.cards-tips > ul > li img {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;

@@ -1,30 +1,30 @@
 {
   "definitions": [
     {
-      "title": "Video Cards",
-      "id": "video-cards",
+      "title": "Cards Resource",
+      "id": "cards-resource",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/block/v1/block",
             "template": {
-              "name": "Video Cards",
-              "filter": "video-cards"
+              "name": "Cards Resource",
+              "filter": "cards-resource"
             }
           }
         }
       }
     },
     {
-      "title": "Video Card",
-      "id": "video-card",
+      "title": "Card Resource",
+      "id": "card-resource",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/block/v1/block/item",
             "template": {
-              "name": "Video Card",
-              "model": "video-card"
+              "name": "Card Resource",
+              "model": "card-resource"
             }
           }
         }
@@ -33,13 +33,13 @@
   ],
   "models": [
     {
-      "id": "video-card",
+      "id": "card-resource",
       "fields": [
         {
           "component": "reference",
           "valueType": "string",
           "name": "image",
-          "label": "Video Poster Image",
+          "label": "Icon/Logo",
           "multi": false
         },
         {
@@ -54,9 +54,9 @@
   ],
   "filters": [
     {
-      "id": "video-cards",
+      "id": "cards-resource",
       "components": [
-        "video-card"
+        "card-resource"
       ]
     }
   ]

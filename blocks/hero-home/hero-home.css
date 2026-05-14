@@ -29,14 +29,6 @@
   margin: 0 auto 0 5%;
 }
 
-.hero-home p:first-child {
-  font-family: var(--font-family-body);
-  font-size: var(--body-font-size-l);
-  color: #fff;
-  margin: 0 0 8px;
-  line-height: 1.4;
-}
-
 .hero-home h1 {
   font-family: var(--font-family-heading);
   font-size: var(--heading-font-size-xxl);
@@ -47,11 +39,12 @@
   letter-spacing: 0.02em;
 }
 
-.hero-home p:nth-child(3) {
+.hero-home p {
   font-family: var(--font-family-body);
   font-size: var(--body-font-size-m);
   color: #fff;
-  margin: 0 0 24px;
+  margin: 0 0 16px;
+  line-height: 1.4;
 }
 
 .hero-home a.button {

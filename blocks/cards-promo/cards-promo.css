@@ -47,7 +47,6 @@
   line-height: 1.5;
 }
 
-.cards-promo .cards-promo-body p.heading-2,
 .cards-promo .cards-promo-body p:first-child {
   font-family: var(--font-family-heading);
   font-size: var(--heading-font-size-xl);
@@ -74,12 +73,6 @@
   margin-top: auto;
 }
 
-.cards-promo a.button.secondary {
-  background-color: transparent;
-  color: #fff;
-  border: 2px solid #fff;
-}
-
 @media (width >= 900px) {
   .cards-promo > ul {
     flex-direction: row;
@@ -88,19 +81,5 @@
 
   .cards-promo > ul > li {
     flex: 1;
-  }
-
-  .cards-promo > ul > li:first-child {
-    flex-direction: row;
-    flex: 1.5;
-  }
-
-  .cards-promo > ul > li:first-child .cards-promo-image {
-    flex: 1;
-  }
-
-  .cards-promo > ul > li:first-child .cards-promo-body {
-    flex: 1;
-    justify-content: center;
   }
 }

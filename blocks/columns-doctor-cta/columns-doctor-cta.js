@@ -1,6 +1,6 @@
 export default function decorate(block) {
   const cols = [...block.firstElementChild.children];
-  block.classList.add(`columns-savings-${cols.length}-cols`);
+  block.classList.add(`columns-doctor-cta-${cols.length}-cols`);
 
   // setup image columns
   [...block.children].forEach((row) => {
@@ -10,7 +10,7 @@ export default function decorate(block) {
         const picWrapper = pic.closest('div');
         if (picWrapper && picWrapper.children.length === 1) {
           // picture is only content in column
-          picWrapper.classList.add('columns-savings-img-col');
+          picWrapper.classList.add('columns-doctor-cta-img-col');
         }
       }
     });

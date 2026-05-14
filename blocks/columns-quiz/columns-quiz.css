@@ -21,23 +21,6 @@
   object-fit: cover;
 }
 
-.columns-quiz p.heading-2 {
-  font-family: var(--font-family-heading);
-  font-size: var(--heading-font-size-xl);
-  color: var(--color-brand-purple);
-  text-transform: uppercase;
-  line-height: 1.1;
-  margin: 0 0 12px;
-}
-
-.columns-quiz p {
-  font-family: var(--font-family-body);
-  font-size: var(--body-font-size-s);
-  color: var(--color-text-primary);
-  line-height: 1.5;
-  margin: 0 0 20px;
-}
-
 .columns-quiz a.button {
   background-color: var(--color-accent);
   color: #fff;

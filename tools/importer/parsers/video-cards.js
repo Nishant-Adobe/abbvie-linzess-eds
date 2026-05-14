@@ -2,119 +2,115 @@
 /* global WebImporter */
 
 /**
-
  * Parser: video-cards
  * Base block: video-cards
- * Source: https://www.linzess.com/
+ * Selector: .flexbox-video-cards--single
+ * Source: https://www.linzess.com/resources
+ * Project type: xwalk
+ * UE Model: container block with "video-card" items (fields: image, text)
  * Generated: 2026-05-14
  *
- * Extracts Brightcove video testimonial cards. Each card has:
- * - Video poster image (from video[poster], .vjs-poster img, or background-image)
- * - H3 title (patient name's LINZESS story)
- * - Quote text with patient info (name, age, condition)
- * - View Transcript link
+ * Source structure per card:
+ *   .flexboxitem-v2 > .abbv-flex-item-v2
+ *     > .video-player > div > .abbv-video-player
+ *       > .abbv-row-container > .abbv-row-flush > .abbv-col
+ *         > .abbv-video-container > video-js > .vjs-poster > img (poster image)
+ *         > .abbv-video-content
+ *           > h3 (title, e.g. "SEEKING THE RIGHT TREATMENT")
+ *           > p (description/quote text with spans)
+ *           > a.transcript-link (transcript link)
  *
- * Output: One row per card, 2 columns per row:
- *   Col 1: poster image
- *   Col 2: title + quote + transcript link
+ * Target table (from UE model - container block):
+ *   | Video Cards |   |
+ *   |-------------|---|
+ *   | image       | text (title + description + link) |
+ *   ... (one row per video card)
  */
 export default function parse(element, { document }) {
-  // Each card is a .flexboxitem-v2 or direct child with .abbv-flex-item-v2
-  const cards = element.querySelectorAll('.flexboxitem-v2, :scope > .abbv-flex-item-v2');
+  // Find all video card items within the container
+  const cardItems = element.querySelectorAll('.flexboxitem-v2');
+
   const cells = [];
 
-  cards.forEach((card) => {
-    // Column 1: Poster image - try multiple sources for robustness
-    let posterSrc = '';
+  cardItems.forEach((card) => {
+    // --- Image cell (video poster) ---
+    const imageCell = document.createDocumentFragment();
+    let posterImg = null;
 
-    // Try 1: img element inside .vjs-poster or video container
-    const posterImg = card.querySelector('.vjs-poster img, .abbv-video-container img, video-js img');
-    if (posterImg && posterImg.getAttribute('src')) {
-      posterSrc = posterImg.getAttribute('src');
+    // Strategy 1: poster attribute on <video> element (most reliable on live Brightcove pages)
+    const videoEl = card.querySelector('video[poster]');
+    if (videoEl && videoEl.getAttribute('poster')) {
+      posterImg = document.createElement('img');
+      posterImg.src = videoEl.getAttribute('poster');
+      posterImg.alt = '';
     }
 
-    // Try 2: video element poster attribute
-    if (!posterSrc) {
-      const videoEl = card.querySelector('video[poster]');
-      if (videoEl) {
-        posterSrc = videoEl.getAttribute('poster');
-      }
-    }
-
-    // Try 3: .vjs-poster background-image style
-    if (!posterSrc) {
+    // Strategy 2: background-image on .vjs-poster div (Brightcove dynamic rendering)
+    if (!posterImg) {
       const posterDiv = card.querySelector('.vjs-poster');
       if (posterDiv) {
-        const style = posterDiv.getAttribute('style') || '';
-        const bgMatch = style.match(/background-image:\s*url\(["']?([^"')]+)["']?\)/);
-        if (bgMatch) {
-          posterSrc = bgMatch[1];
+        const styleAttr = posterDiv.getAttribute('style') || '';
+        const bgMatch = styleAttr.match(/url\(["']?([^"')]+)["']?\)/);
+        if (bgMatch && bgMatch[1]) {
+          posterImg = document.createElement('img');
+          posterImg.src = bgMatch[1];
+          posterImg.alt = '';
         }
       }
     }
 
-    const imageCell = [];
-    if (posterSrc) {
-      const img = document.createElement('img');
-      img.src = posterSrc;
-      const frag = document.createDocumentFragment();
-      frag.appendChild(document.createComment(' field:image '));
-      frag.appendChild(img);
-      imageCell.push(frag);
+    // Strategy 3: direct img in .vjs-poster (static/cached HTML)
+    if (!posterImg) {
+      const directImg = card.querySelector('.vjs-poster img');
+      if (directImg && directImg.getAttribute('src')) {
+        posterImg = directImg;
+      }
     }
 
-    // Column 2: Content (title, quote, transcript link)
-    const contentContainer = card.querySelector('.abbv-video-content');
-    const contentCell = [];
+    if (posterImg) {
+      imageCell.appendChild(document.createComment(' field:image '));
+      imageCell.appendChild(posterImg);
+    }
 
-    if (contentContainer) {
-      // Title (h3)
-      const title = contentContainer.querySelector('h3');
+    // --- Text cell (title + description + transcript link) ---
+    const textCell = document.createDocumentFragment();
+    const videoContent = card.querySelector('.abbv-video-content');
+
+    if (videoContent) {
+      textCell.appendChild(document.createComment(' field:text '));
+
+      // Extract title (h3)
+      const title = videoContent.querySelector('h3, h2, h4');
       if (title) {
-        const titleFrag = document.createDocumentFragment();
-        titleFrag.appendChild(document.createComment(' field:title '));
-        const h3 = document.createElement('h3');
-        h3.textContent = title.textContent.trim();
-        titleFrag.appendChild(h3);
-        contentCell.push(titleFrag);
+        textCell.appendChild(title);
       }
 
-      // Quote text with patient info - find paragraphs with actual content
-      const paragraphs = contentContainer.querySelectorAll('p');
-      let quoteText = '';
+      // Extract description paragraphs (quote text with patient info)
+      const paragraphs = videoContent.querySelectorAll('p');
       paragraphs.forEach((p) => {
-        const text = p.textContent.trim();
-        if (text && text.length > 1 && !quoteText) {
-          quoteText = text;
+        // Only add non-empty paragraphs
+        if (p.textContent.trim()) {
+          textCell.appendChild(p);
         }
       });
-      if (quoteText) {
-        const quoteFrag = document.createDocumentFragment();
-        quoteFrag.appendChild(document.createComment(' field:description '));
-        const p = document.createElement('p');
-        p.textContent = quoteText;
-        quoteFrag.appendChild(p);
-        contentCell.push(quoteFrag);
-      }
 
-      // Transcript link
-      const transcriptLink = contentContainer.querySelector('a.transcript-link, a[href*="transcript"]');
+      // Extract transcript link
+      const transcriptLink = videoContent.querySelector('a.transcript-link, a[href*="transcript"]');
       if (transcriptLink) {
-        const linkFrag = document.createDocumentFragment();
-        linkFrag.appendChild(document.createComment(' field:link '));
-        const a = document.createElement('a');
-        a.href = transcriptLink.getAttribute('href') || transcriptLink.href;
-        a.textContent = transcriptLink.textContent.trim();
-        linkFrag.appendChild(a);
-        contentCell.push(linkFrag);
+        // Wrap in a paragraph for proper block rendering
+        const linkP = document.createElement('p');
+        linkP.appendChild(transcriptLink);
+        textCell.appendChild(linkP);
       }
     }
 
-    if (imageCell.length || contentCell.length) {
-      cells.push([imageCell, contentCell]);
-    }
+    cells.push([imageCell, textCell]);
   });
 
-  const block = WebImporter.Blocks.createBlock(document, { name: 'video-cards', cells });
+  const block = WebImporter.Blocks.createBlock(document, {
+    name: 'video-cards',
+    cells,
+  });
+
   element.replaceWith(block);
 }

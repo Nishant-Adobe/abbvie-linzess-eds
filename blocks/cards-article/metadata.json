@@ -1,5 +1,5 @@
 {
-  "variantName": "video-cards",
+  "variantName": "cards-article",
   "baseBlock": "cards",
   "version": "1.0.0",
   "created": "2026-05-14T17:01:00.000Z",
@@ -11,24 +11,24 @@
   "visualCharacteristics": {
     "colorScheme": "light",
     "density": "wide",
-    "purpose": "video-testimonial",
+    "purpose": "article-cards",
     "imagePattern": "large"
   },
   "contentPattern": {
-    "structure": "video-poster + title + quote + patient-info + transcript-link",
-    "buttonCount": 0,
+    "structure": "image + title + description + CTA",
+    "buttonCount": 1,
     "imageCount": 1
   },
   "reuseGuidance": {
     "suitableFor": [
-      "video testimonial sections",
-      "patient story video cards",
-      "single or multiple video card layouts"
+      "article listing pages",
+      "blog/resource hub card grids",
+      "content pages with linked article cards"
     ],
     "notSuitableFor": [
-      "photo-based article cards",
-      "icon-based tip cards",
-      "non-video content cards"
+      "icon-based tip cards without photos",
+      "product feature cards",
+      "cards without CTA buttons"
     ]
   },
   "usage": {

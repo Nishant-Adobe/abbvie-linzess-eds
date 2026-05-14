@@ -14,14 +14,25 @@
       "title",
       "hero",
       "hero-home",
+      "hero-resources",
       "cards",
       "cards-promo",
+      "cards-article",
+      "cards-tips",
+      "cards-resource",
       "columns",
       "columns-quiz",
+      "columns-doctor-cta",
       "columns-savings",
       "stats",
       "video-cards",
       "fragment"
+    ]
+  },
+  {
+    "id": "cards-article",
+    "components": [
+      "card-article"
     ]
   },
   {
@@ -31,9 +42,36 @@
     ]
   },
   {
+    "id": "cards-resource",
+    "components": [
+      "card-resource"
+    ]
+  },
+  {
+    "id": "cards-tips",
+    "components": [
+      "card-tip"
+    ]
+  },
+  {
     "id": "cards",
     "components": [
       "card"
+    ]
+  },
+  {
+    "id": "columns-doctor-cta",
+    "components": [
+      "column"
+    ]
+  },
+  {
+    "id": "column",
+    "components": [
+      "text",
+      "image",
+      "button",
+      "title"
     ]
   },
   {
@@ -46,6 +84,15 @@
     "id": "columns-savings",
     "components": [
       "column"
+    ]
+  },
+  {
+    "id": "column",
+    "components": [
+      "text",
+      "image",
+      "button",
+      "title"
     ]
   },
   {

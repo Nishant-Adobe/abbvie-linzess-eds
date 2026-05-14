@@ -1,8 +1,8 @@
 {
   "definitions": [
     {
-      "title": "Columns Savings",
-      "id": "columns-savings",
+      "title": "Columns Doctor CTA",
+      "id": "columns-doctor-cta",
       "plugins": {
         "xwalk": {
           "page": {
@@ -18,7 +18,7 @@
   ],
   "models": [
     {
-      "id": "columns-savings",
+      "id": "columns-doctor-cta",
       "fields": [
         {
           "component": "text",
@@ -39,7 +39,7 @@
   ],
   "filters": [
     {
-      "id": "columns-savings",
+      "id": "columns-doctor-cta",
       "components": [
         "column"
       ]

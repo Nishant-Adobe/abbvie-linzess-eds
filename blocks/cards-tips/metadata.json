@@ -1,5 +1,5 @@
 {
-  "variantName": "video-cards",
+  "variantName": "cards-tips",
   "baseBlock": "cards",
   "version": "1.0.0",
   "created": "2026-05-14T17:01:00.000Z",
@@ -9,26 +9,26 @@
     "blockPosition": "middle"
   },
   "visualCharacteristics": {
-    "colorScheme": "light",
+    "colorScheme": "dark",
     "density": "wide",
-    "purpose": "video-testimonial",
-    "imagePattern": "large"
+    "purpose": "wellness-tips",
+    "imagePattern": "icon"
   },
   "contentPattern": {
-    "structure": "video-poster + title + quote + patient-info + transcript-link",
+    "structure": "icon + title + bullet-list",
     "buttonCount": 0,
     "imageCount": 1
   },
   "reuseGuidance": {
     "suitableFor": [
-      "video testimonial sections",
-      "patient story video cards",
-      "single or multiple video card layouts"
+      "tip/advice listing sections",
+      "icon-based feature cards with bullet lists",
+      "wellness or health guidance cards"
     ],
     "notSuitableFor": [
       "photo-based article cards",
-      "icon-based tip cards",
-      "non-video content cards"
+      "cards with CTA buttons",
+      "product feature cards"
     ]
   },
   "usage": {

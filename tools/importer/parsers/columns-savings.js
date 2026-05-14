@@ -1,57 +1,69 @@
 /* eslint-disable */
 /* global WebImporter */
-
 /**
- * Parser: columns-savings
+ * Parser for columns-savings
  * Base block: columns
- * Selector: .savings-card-tout
- * Description: 2-column savings offer layout. Left column has product image,
- * right column has heading, description, primary CTA, and secondary link.
- * xwalk project: Columns blocks do NOT require field hint comments per hinting rules.
+ * Source selector: .savings-card-tout
  * Generated: 2026-05-14
+ *
+ * Savings offer section with two columns:
+ * - Left column: product savings card image
+ * - Right column: heading, description, primary CTA, secondary link text
+ *
+ * Columns blocks do NOT require field hint comments (xwalk Rule 4 exception).
  */
 export default function parse(element, { document }) {
-  // Left column: product image
-  const cols = element.querySelectorAll('.abbv-col, [class*="abbv-col-6"]');
-  const leftCol = cols[0];
-  const image = leftCol ? leftCol.querySelector('picture, img') : element.querySelector('picture, img');
-
-  // Right column: heading, description, primary CTA, secondary text with link
-  const rightCol = cols.length > 1 ? cols[1] : element;
-
-  // Heading: first paragraph with heading-2 class
-  const heading = rightCol.querySelector('p.heading-2, .heading-2, h2');
-
-  // Description: paragraph with mt15 class (immediately after heading)
-  const description = rightCol.querySelector('p.mt15, p.mb24');
-
-  // Primary CTA: button link in .cta container
-  const primaryCta = rightCol.querySelector('.cta a, a.abbv-button-primary, a.abbv-button-primary-v2');
-
-  // Secondary text: paragraph in the last rich-text section containing the "Activate now" link
-  const richTextSections = rightCol.querySelectorAll('.rich-text');
-  let secondaryText = null;
-  if (richTextSections.length > 1) {
-    secondaryText = richTextSections[richTextSections.length - 1].querySelector('p');
+  // Left column: extract the savings card image
+  const leftCol = element.querySelector('.abbv-col:first-child, .abbv-col-6:first-child');
+  const picture = leftCol ? leftCol.querySelector('picture') : element.querySelector('picture');
+  const leftContent = [];
+  if (picture) {
+    leftContent.push(picture);
   } else {
-    secondaryText = rightCol.querySelector('p.mb32-m');
+    // Fallback: try standalone img
+    const img = leftCol ? leftCol.querySelector('img') : element.querySelector('img');
+    if (img) leftContent.push(img);
   }
 
-  // Build left cell content
-  const leftCellContent = [];
-  if (image) leftCellContent.push(image);
+  // Right column: extract heading, description, CTA, and secondary text
+  const rightCol = element.querySelector('.abbv-col:nth-child(2), .abbv-col-6:nth-child(2)');
+  const rightContent = [];
 
-  // Build right cell content
-  const rightCellContent = [];
-  if (heading) rightCellContent.push(heading);
-  if (description) rightCellContent.push(description);
-  if (primaryCta) rightCellContent.push(primaryCta);
-  if (secondaryText) rightCellContent.push(secondaryText);
+  if (rightCol) {
+    // Heading (styled as heading-2 class in a <p> tag)
+    const heading = rightCol.querySelector('.heading-2, h2, h1, h3');
+    if (heading) rightContent.push(heading);
 
-  // Columns block: 1 row with 2 cells (left image, right content)
-  // No field hints required for Columns blocks per xwalk hinting rules
+    // Description paragraph (first non-heading paragraph in the rich-text)
+    const richTextBlocks = rightCol.querySelectorAll('.abbv-rich-text');
+    if (richTextBlocks.length > 0) {
+      const firstRichText = richTextBlocks[0];
+      const paragraphs = firstRichText.querySelectorAll('p');
+      paragraphs.forEach((p) => {
+        // Skip the heading paragraph (already captured)
+        if (!p.classList.contains('heading-2') && !p.querySelector('h1, h2, h3') && p !== heading) {
+          rightContent.push(p);
+        }
+      });
+    }
+
+    // Primary CTA link ("Sign Up Now")
+    const ctaLink = rightCol.querySelector('.cta a, a.abbv-button-primary, a.abbv-button-primary-v2');
+    if (ctaLink) rightContent.push(ctaLink);
+
+    // Secondary text/link ("Already have a savings card? Activate now")
+    if (richTextBlocks.length > 1) {
+      const secondaryRichText = richTextBlocks[richTextBlocks.length - 1];
+      const secondaryParas = secondaryRichText.querySelectorAll('p');
+      secondaryParas.forEach((p) => {
+        rightContent.push(p);
+      });
+    }
+  }
+
+  // Build cells: single row with two columns matching the Columns library structure
   const cells = [
-    [leftCellContent, rightCellContent],
+    [leftContent, rightContent],
   ];
 
   const block = WebImporter.Blocks.createBlock(document, { name: 'columns-savings', cells });

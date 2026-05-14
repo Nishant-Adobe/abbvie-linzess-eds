@@ -1,34 +1,34 @@
 {
-  "variantName": "video-cards",
-  "baseBlock": "cards",
+  "variantName": "hero-resources",
+  "baseBlock": "hero",
   "version": "1.0.0",
   "created": "2026-05-14T17:01:00.000Z",
   "sourceContext": {
     "originUrl": "https://www.linzess.com/resources",
     "originPage": "Resources & Helpful Information landing page",
-    "blockPosition": "middle"
+    "blockPosition": "top"
   },
   "visualCharacteristics": {
     "colorScheme": "light",
-    "density": "wide",
-    "purpose": "video-testimonial",
-    "imagePattern": "large"
+    "density": "minimal",
+    "purpose": "resources-hero",
+    "imagePattern": "background-image"
   },
   "contentPattern": {
-    "structure": "video-poster + title + quote + patient-info + transcript-link",
+    "structure": "eyebrow + divider + heading",
     "buttonCount": 0,
     "imageCount": 1
   },
   "reuseGuidance": {
     "suitableFor": [
-      "video testimonial sections",
-      "patient story video cards",
-      "single or multiple video card layouts"
+      "resource landing pages",
+      "content hub pages with eyebrow + heading hero",
+      "pages with background image hero and no CTA buttons"
     ],
     "notSuitableFor": [
-      "photo-based article cards",
-      "icon-based tip cards",
-      "non-video content cards"
+      "product pages requiring CTA buttons in hero",
+      "hero sections without background images",
+      "hero sections requiring subheading text"
     ]
   },
   "usage": {

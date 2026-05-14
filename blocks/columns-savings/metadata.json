@@ -2,39 +2,38 @@
   "variantName": "columns-savings",
   "baseBlock": "columns",
   "version": "1.0.0",
-  "created": "2026-05-14T09:10:00.000Z",
+  "created": "2026-05-14T17:01:00.000Z",
   "sourceContext": {
-    "originUrl": "https://www.linzess.com/",
-    "originPage": "homepage",
+    "originUrl": "https://www.linzess.com/resources",
+    "originPage": "Resources & Helpful Information landing page",
     "blockPosition": "bottom"
   },
   "visualCharacteristics": {
     "colorScheme": "light",
-    "density": "spacious",
+    "density": "wide",
     "purpose": "savings-offer",
-    "imagePattern": "large",
-    "structure": "product image + heading + description + CTA + secondary link"
+    "imagePattern": "large"
   },
   "contentPattern": {
-    "structure": "2-column: product/savings image + text content (heading + description + CTA + secondary link)",
+    "structure": "product-image + heading + description + CTA + secondary-link",
     "buttonCount": 2,
     "imageCount": 1
   },
   "reuseGuidance": {
     "suitableFor": [
-      "savings card or coupon promotional sections",
-      "product offer layouts with image and details",
-      "two-column marketing CTAs with product imagery"
+      "savings card/offer promotion sections",
+      "product offer touts with image and CTA",
+      "insurance/payment information layouts"
     ],
     "notSuitableFor": [
-      "quiz or engagement sections",
-      "simple text columns",
-      "multi-item comparison layouts"
+      "text-only column layouts",
+      "multi-row column layouts",
+      "comparison table layouts"
     ]
   },
   "usage": {
-    "pagesUsing": ["/index"],
+    "pagesUsing": ["/resources"],
     "reuseCount": 1,
-    "lastUsed": "2026-05-14T09:10:00.000Z"
+    "lastUsed": "2026-05-14T17:01:00.000Z"
   }
 }
