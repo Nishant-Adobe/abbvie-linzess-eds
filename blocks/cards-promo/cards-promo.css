@@ -1,0 +1,106 @@
+.cards-promo > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.cards-promo > ul > li {
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: var(--color-brand-purple-light);
+  display: flex;
+  flex-direction: column;
+}
+
+.cards-promo > ul > li:nth-child(2) {
+  background-color: var(--color-brand-purple);
+  color: #fff;
+}
+
+.cards-promo .cards-promo-image {
+  line-height: 0;
+}
+
+.cards-promo .cards-promo-image img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.cards-promo .cards-promo-body {
+  padding: 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.cards-promo .cards-promo-body p {
+  font-family: var(--font-family-body);
+  font-size: var(--body-font-size-s);
+  color: var(--color-text-primary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.cards-promo .cards-promo-body p.heading-2,
+.cards-promo .cards-promo-body p:first-child {
+  font-family: var(--font-family-heading);
+  font-size: var(--heading-font-size-xl);
+  color: var(--color-brand-purple);
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.cards-promo > ul > li:nth-child(2) .cards-promo-body p {
+  color: #fff;
+}
+
+.cards-promo a.button {
+  background-color: var(--color-accent);
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  padding: 10px 28px;
+  font-family: var(--font-family-body);
+  font-size: var(--body-font-size-s);
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: auto;
+}
+
+.cards-promo a.button.secondary {
+  background-color: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+}
+
+@media (width >= 900px) {
+  .cards-promo > ul {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .cards-promo > ul > li {
+    flex: 1;
+  }
+
+  .cards-promo > ul > li:first-child {
+    flex-direction: row;
+    flex: 1.5;
+  }
+
+  .cards-promo > ul > li:first-child .cards-promo-image {
+    flex: 1;
+  }
+
+  .cards-promo > ul > li:first-child .cards-promo-body {
+    flex: 1;
+    justify-content: center;
+  }
+}

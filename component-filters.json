@@ -13,15 +13,39 @@
       "button",
       "title",
       "hero",
+      "hero-home",
       "cards",
+      "cards-promo",
       "columns",
+      "columns-quiz",
+      "columns-savings",
+      "stats",
+      "video-cards",
       "fragment"
+    ]
+  },
+  {
+    "id": "cards-promo",
+    "components": [
+      "card-promo"
     ]
   },
   {
     "id": "cards",
     "components": [
       "card"
+    ]
+  },
+  {
+    "id": "columns-quiz",
+    "components": [
+      "column"
+    ]
+  },
+  {
+    "id": "columns-savings",
+    "components": [
+      "column"
     ]
   },
   {
@@ -37,6 +61,18 @@
       "image",
       "button",
       "title"
+    ]
+  },
+  {
+    "id": "stats",
+    "components": [
+      "stat-item"
+    ]
+  },
+  {
+    "id": "video-cards",
+    "components": [
+      "video-card"
     ]
   }
 ]
