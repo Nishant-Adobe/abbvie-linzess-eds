@@ -1,0 +1,80 @@
+.columns-savings > div {
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5f5;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.columns-savings > div > div {
+  order: 1;
+  padding: 24px;
+}
+
+.columns-savings > div > .columns-savings-img-col {
+  order: 0;
+}
+
+.columns-savings img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.columns-savings p {
+  font-family: var(--font-family-body);
+  font-size: var(--body-font-size-s);
+  color: var(--color-text-primary);
+  line-height: 1.5;
+  margin: 0 0 16px;
+}
+
+.columns-savings p:first-child {
+  font-family: var(--font-family-heading);
+  font-size: var(--heading-font-size-xl);
+  color: var(--color-brand-purple);
+  text-transform: uppercase;
+  line-height: 1.1;
+  margin: 0 0 12px;
+}
+
+.columns-savings a.button {
+  background-color: var(--color-accent);
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  padding: 12px 32px;
+  font-family: var(--font-family-body);
+  font-size: var(--body-font-size-m);
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.columns-savings .secondary-link {
+  font-size: var(--body-font-size-s);
+  color: var(--color-text-primary);
+}
+
+.columns-savings .secondary-link a {
+  color: var(--color-link);
+  font-weight: 800;
+}
+
+@media (width >= 900px) {
+  .columns-savings > div {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .columns-savings > div > div {
+    flex: 1;
+    order: unset;
+    padding: 40px;
+  }
+
+  .columns-savings > div > .columns-savings-img-col {
+    flex: 1;
+  }
+}
