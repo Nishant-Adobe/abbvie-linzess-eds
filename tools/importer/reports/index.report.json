@@ -1,0 +1,17 @@
+{
+  "status": "success",
+  "url": "https://www.linzess.com/",
+  "path": "index",
+  "timestamp": "2026-05-14T10:09:36.049Z",
+  "title": "LINZESS (linaclotide) for IBS-C & CIC | Patient Information",
+  "template": "homepage",
+  "blocks": [
+    "hero-home",
+    "cards-promo",
+    "cards-promo",
+    "columns-quiz",
+    "stats",
+    "video-cards",
+    "columns-savings"
+  ]
+}
