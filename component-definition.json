@@ -83,6 +83,96 @@
       "id": "blocks",
       "components": [
         {
+          "title": "Cards Article",
+          "id": "cards-article",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Cards Article",
+                  "filter": "cards-article"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Card Article",
+          "id": "card-article",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Card Article",
+                  "model": "card-article"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Cards Resource",
+          "id": "cards-resource",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Cards Resource",
+                  "filter": "cards-resource"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Card Resource",
+          "id": "card-resource",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Card Resource",
+                  "model": "card-resource"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Cards Tips",
+          "id": "cards-tips",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Cards Tips",
+                  "filter": "cards-tips"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Card Tip",
+          "id": "card-tip",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Card Tip",
+                  "model": "card-tip"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Cards",
           "id": "cards",
           "plugins": {
@@ -107,6 +197,36 @@
                 "template": {
                   "name": "Card",
                   "model": "card"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Columns Doctor CTA",
+          "id": "columns-doctor-cta",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/columns/v1/columns",
+                "template": {
+                  "columns": "2",
+                  "rows": "1"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Columns Savings",
+          "id": "columns-savings",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/columns/v1/columns",
+                "template": {
+                  "columns": "2",
+                  "rows": "1"
                 }
               }
             }
@@ -143,6 +263,21 @@
           }
         },
         {
+          "title": "Hero Resources",
+          "id": "hero-resources",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Hero Resources",
+                  "model": "hero-resources"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Hero",
           "id": "hero",
           "plugins": {
@@ -152,6 +287,36 @@
                 "template": {
                   "name": "Hero",
                   "model": "hero"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Video Cards",
+          "id": "video-cards",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Video Cards",
+                  "filter": "video-cards"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Video Card",
+          "id": "video-card",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Video Card",
+                  "model": "video-card"
                 }
               }
             }

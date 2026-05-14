@@ -1,0 +1,122 @@
+{
+  "metadata": {
+    "projectType": "xwalk"
+  },
+  "templates": [
+    {
+      "name": "resources",
+      "urls": [
+        "https://www.linzess.com/resources"
+      ],
+      "description": "Resources page with healthy routines, wellness tips, community resources, video testimonial, savings offer, and ISI regulatory content",
+      "blocks": [
+        {
+          "name": "hero-resources",
+          "instances": [".hero-container.uppercase"]
+        },
+        {
+          "name": "cards-article",
+          "instances": [".flexbox-article-cards.resources-flexbox-column"]
+        },
+        {
+          "name": "cards-tips",
+          "instances": [".wellness-tips-cards"]
+        },
+        {
+          "name": "columns-doctor-cta",
+          "instances": [".resources-tout"]
+        },
+        {
+          "name": "cards-resource",
+          "instances": [".flexbox-cards.resources-page"]
+        },
+        {
+          "name": "video-cards",
+          "instances": [".flexbox-video-cards--single"]
+        },
+        {
+          "name": "columns-savings",
+          "instances": [".savings-card-tout"]
+        },
+        {
+          "name": "columns",
+          "instances": [".bottom-nav .abbv-flex-container-v2"]
+        }
+      ],
+      "sections": [
+        {
+          "id": "section-1-hero",
+          "name": "Hero Header",
+          "selector": ".hero-container.uppercase",
+          "style": null,
+          "blocks": ["hero-resources"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-2-jumpnav",
+          "name": "Jump Navigation",
+          "selector": ".linzess-jump-nav",
+          "style": null,
+          "blocks": [],
+          "defaultContent": []
+        },
+        {
+          "id": "section-3-routines",
+          "name": "Healthy Routines",
+          "selector": ".abbv-container.background-white.background-white-arc",
+          "style": "white-arc",
+          "blocks": ["cards-article"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-4-tips",
+          "name": "Wellness Tips",
+          "selector": ".abbv-container.background-dark-purple.background-dark-purple-arc",
+          "style": "dark-purple-arc",
+          "blocks": ["cards-tips", "cards-article", "columns-doctor-cta"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-5-community",
+          "name": "Community Resources",
+          "selector": ".abbv-container.background-off-white",
+          "style": "off-white-arc",
+          "blocks": ["cards-resource"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-6-video",
+          "name": "Video Testimonial",
+          "selector": ".flexbox-video-cards--single",
+          "style": null,
+          "blocks": ["video-cards"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-7-savings",
+          "name": "Savings Offer",
+          "selector": ".savings-card-tout",
+          "style": null,
+          "blocks": ["columns-savings"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-8-bottomnav",
+          "name": "Bottom Navigation CTAs",
+          "selector": ".bottom-nav",
+          "style": "dark-purple-arc",
+          "blocks": ["columns"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-9-isi",
+          "name": "ISI",
+          "selector": ".abbv-inline-use-isi",
+          "style": null,
+          "blocks": [],
+          "defaultContent": [".linzess-use-statement h3", ".linzess-use-statement p", ".linzess-isi-iri h3", ".linzess-isi-iri ul", ".linzess-isi-iri p"]
+        }
+      ]
+    }
+  ]
+}

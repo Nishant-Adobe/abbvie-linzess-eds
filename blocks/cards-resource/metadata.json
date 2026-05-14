@@ -1,0 +1,39 @@
+{
+  "variantName": "cards-resource",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-05-14T17:01:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.linzess.com/resources",
+    "originPage": "Resources & Helpful Information landing page",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "colored",
+    "density": "wide",
+    "purpose": "community-resource",
+    "imagePattern": "icon"
+  },
+  "contentPattern": {
+    "structure": "icon/logo + heading + description + CTA",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "external resource listing cards",
+      "community resource pages with icon + description + CTA",
+      "partner/organization showcase cards"
+    ],
+    "notSuitableFor": [
+      "photo-based article cards",
+      "icon-only tip cards without CTAs",
+      "product feature cards"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/resources"],
+    "reuseCount": 1,
+    "lastUsed": "2026-05-14T17:01:00.000Z"
+  }
+}

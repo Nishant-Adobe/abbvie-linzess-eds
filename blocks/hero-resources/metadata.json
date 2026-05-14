@@ -1,0 +1,39 @@
+{
+  "variantName": "hero-resources",
+  "baseBlock": "hero",
+  "version": "1.0.0",
+  "created": "2026-05-14T17:01:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.linzess.com/resources",
+    "originPage": "Resources & Helpful Information landing page",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "minimal",
+    "purpose": "resources-hero",
+    "imagePattern": "background-image"
+  },
+  "contentPattern": {
+    "structure": "eyebrow + divider + heading",
+    "buttonCount": 0,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "resource landing pages",
+      "content hub pages with eyebrow + heading hero",
+      "pages with background image hero and no CTA buttons"
+    ],
+    "notSuitableFor": [
+      "product pages requiring CTA buttons in hero",
+      "hero sections without background images",
+      "hero sections requiring subheading text"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/resources"],
+    "reuseCount": 1,
+    "lastUsed": "2026-05-14T17:01:00.000Z"
+  }
+}

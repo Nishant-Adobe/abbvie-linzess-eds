@@ -1,0 +1,39 @@
+{
+  "variantName": "video-cards",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-05-14T17:01:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.linzess.com/resources",
+    "originPage": "Resources & Helpful Information landing page",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "wide",
+    "purpose": "video-testimonial",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "video-poster + title + quote + patient-info + transcript-link",
+    "buttonCount": 0,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "video testimonial sections",
+      "patient story video cards",
+      "single or multiple video card layouts"
+    ],
+    "notSuitableFor": [
+      "photo-based article cards",
+      "icon-based tip cards",
+      "non-video content cards"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/resources"],
+    "reuseCount": 1,
+    "lastUsed": "2026-05-14T17:01:00.000Z"
+  }
+}

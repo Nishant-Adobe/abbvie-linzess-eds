@@ -33,6 +33,22 @@
             {
               "name": "Highlight",
               "value": "highlight"
+            },
+            {
+              "name": "White Arc",
+              "value": "white-arc"
+            },
+            {
+              "name": "Dark Purple Arc",
+              "value": "dark-purple-arc"
+            },
+            {
+              "name": "Dark Purple",
+              "value": "dark-purple"
+            },
+            {
+              "name": "Off White Arc",
+              "value": "off-white-arc"
             }
           ]
         }
@@ -48,8 +64,15 @@
         "button",
         "title",
         "hero",
+        "hero-resources",
         "cards",
+        "cards-article",
+        "cards-tips",
+        "cards-resource",
         "columns",
+        "columns-doctor-cta",
+        "columns-savings",
+        "video-cards",
         "fragment"
       ]
     }

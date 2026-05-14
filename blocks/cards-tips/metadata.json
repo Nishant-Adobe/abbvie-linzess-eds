@@ -1,0 +1,39 @@
+{
+  "variantName": "cards-tips",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-05-14T17:01:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.linzess.com/resources",
+    "originPage": "Resources & Helpful Information landing page",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "wide",
+    "purpose": "wellness-tips",
+    "imagePattern": "icon"
+  },
+  "contentPattern": {
+    "structure": "icon + title + bullet-list",
+    "buttonCount": 0,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "tip/advice listing sections",
+      "icon-based feature cards with bullet lists",
+      "wellness or health guidance cards"
+    ],
+    "notSuitableFor": [
+      "photo-based article cards",
+      "cards with CTA buttons",
+      "product feature cards"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/resources"],
+    "reuseCount": 1,
+    "lastUsed": "2026-05-14T17:01:00.000Z"
+  }
+}

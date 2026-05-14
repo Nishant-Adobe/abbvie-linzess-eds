@@ -1,0 +1,33 @@
+.columns-doctor-cta > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.columns-doctor-cta img {
+  width: 100%;
+}
+
+.columns-doctor-cta > div > div {
+  order: 1;
+}
+
+.columns-doctor-cta > div > .columns-doctor-cta-img-col {
+  order: 0;
+}
+
+.columns-doctor-cta > div > .columns-doctor-cta-img-col img {
+  display: block;
+}
+
+@media (width >= 900px) {
+  .columns-doctor-cta > div {
+    align-items: center;
+    flex-direction: unset;
+    gap: 24px;
+  }
+
+  .columns-doctor-cta > div > div {
+    flex: 1;
+    order: unset;
+  }
+}

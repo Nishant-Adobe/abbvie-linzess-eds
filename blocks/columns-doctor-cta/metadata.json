@@ -1,0 +1,39 @@
+{
+  "variantName": "columns-doctor-cta",
+  "baseBlock": "columns",
+  "version": "1.0.0",
+  "created": "2026-05-14T17:01:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.linzess.com/resources",
+    "originPage": "Resources & Helpful Information landing page",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "wide",
+    "purpose": "doctor-cta-tout",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "image + heading + paragraph + CTA",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "doctor discussion CTA sections",
+      "two-column tout with image and call-to-action",
+      "patient engagement prompts"
+    ],
+    "notSuitableFor": [
+      "multi-row column layouts",
+      "text-only column layouts",
+      "product comparison columns"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/resources"],
+    "reuseCount": 1,
+    "lastUsed": "2026-05-14T17:01:00.000Z"
+  }
+}
