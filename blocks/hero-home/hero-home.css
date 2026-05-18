@@ -5,77 +5,90 @@
 
 .hero-home {
   position: relative;
-  min-height: 480px;
   display: flex;
-  align-items: center;
-  padding: 40px 24px;
   overflow: hidden;
 }
 
 .hero-home .hero-home-bg {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
+  width: 100%;
+  line-height: 0;
 }
 
 .hero-home .hero-home-bg img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  display: block;
+}
+
+.hero-home > div:last-child {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  padding: 0;
 }
 
 .hero-home .hero-home-content {
-  max-width: 600px;
-  margin: 0 auto 0 5%;
-}
-
-.hero-home h1 {
-  font-family: var(--font-family-heading);
-  font-size: var(--heading-font-size-xxl);
-  color: #fff;
-  text-transform: uppercase;
-  line-height: 1;
-  margin: 0 0 16px;
-  letter-spacing: 0.02em;
+  max-width: 1000px;
+  padding: 75px 0 0;
+  margin: 20px;
+  text-align: left;
 }
 
 .hero-home p {
-  font-family: var(--font-family-body);
-  font-size: var(--body-font-size-m);
+  font-family: lato, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
   color: #fff;
-  margin: 0 0 16px;
-  line-height: 1.4;
+  line-height: normal;
+  margin: 0 0 20px;
 }
 
-.hero-home a.button {
-  background-color: var(--color-accent);
+.hero-home h1 {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 56px;
+  font-weight: 400;
   color: #fff;
-  border: none;
-  border-radius: 24px;
-  padding: 12px 32px;
-  font-family: var(--font-family-body);
-  font-size: var(--body-font-size-m);
-  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: normal;
+  margin: 0 0 20px;
+}
+
+.hero-home p:last-child a,
+.hero-home a.button {
+  font-family: lato, sans-serif;
+  font-size: 14.4px;
+  font-weight: 800;
+  color: rgb(66 46 131);
+  background-color: rgb(250 166 51);
+  border-radius: 16px;
+  padding: 16px 32px;
   text-decoration: none;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  line-height: normal;
+  border: none;
   transition: background-color 0.2s;
 }
 
+.hero-home p:last-child a:hover,
 .hero-home a.button:hover {
-  background-color: var(--color-accent-hover);
+  background-color: rgb(230 146 31);
 }
 
 @media (width >= 900px) {
-  .hero-home {
-    min-height: 560px;
-    padding: 60px 32px;
+  .hero-home p {
+    font-size: 16px;
+  }
+}
+
+@media (width < 900px) {
+  .hero-home .hero-home-content {
+    padding: 40px 0 0;
   }
 
   .hero-home h1 {
-    font-size: 3.5rem;
-  }
-
-  .hero-home .hero-home-content {
-    max-width: 650px;
+    font-size: 36px;
+    line-height: 0.9;
   }
 }

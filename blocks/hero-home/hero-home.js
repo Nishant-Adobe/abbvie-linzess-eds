@@ -7,8 +7,10 @@ export default function decorate(block) {
 
   const pic = imageRow.querySelector('picture');
   if (pic) {
-    pic.classList.add('hero-home-bg');
-    block.prepend(pic);
+    const bgDiv = document.createElement('div');
+    bgDiv.classList.add('hero-home-bg');
+    bgDiv.append(pic);
+    block.prepend(bgDiv);
   }
   imageRow.remove();
 
