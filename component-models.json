@@ -329,6 +329,47 @@
     ]
   },
   {
+    "id": "dosing-card",
+    "fields": [
+      {
+        "component": "select",
+        "name": "group",
+        "label": "Audience Group",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Adults with IBS-C or CIC",
+            "value": "adults"
+          },
+          {
+            "name": "Pediatric Functional Constipation (6-17)",
+            "value": "pediatric"
+          }
+        ]
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "icon",
+        "label": "Icon",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Title"
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "value": "",
+        "label": "Description",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
     "id": "fragment",
     "fields": [
       {
