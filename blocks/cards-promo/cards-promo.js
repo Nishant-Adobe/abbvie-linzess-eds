@@ -2,19 +2,19 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 /**
- * Detect whether this cards-promo block uses small icons (≤ ~120px natural width)
- * or a larger promo/savings image. Adds 'icon' class to block for icon variant.
- * Detection runs after images load to read naturalWidth.
+ * Detect icon vs. promo-savings variant by reading the original image width attributes
+ * before createOptimizedPicture replaces the elements.
+ * Icon cards use small images (≤ 200px wide); savings card uses a larger image.
+ * Adds 'icon' class to block when all images are small icons.
  */
-function detectVariant(block) {
+function detectVariantFromWidths(block) {
   const imgs = [...block.querySelectorAll('img')];
   if (!imgs.length) return;
 
-  // If any image has loaded with a natural width > 200px, treat as promo (savings) layout.
-  // Icon cards use small images (≈ 106–110px wide).
   const allSmall = imgs.every((img) => {
-    if (img.naturalWidth > 0) return img.naturalWidth <= 200;
-    // fallback: check rendered width attribute
+    // Prefer naturalWidth if already loaded
+    if (img.complete && img.naturalWidth > 0) return img.naturalWidth <= 200;
+    // Fall back to authored width attribute (EDS always sets this from the document)
     const w = parseInt(img.getAttribute('width') || '0', 10);
     return w > 0 && w <= 200;
   });
@@ -25,6 +25,9 @@ function detectVariant(block) {
 }
 
 export default function decorate(block) {
+  // Detect variant BEFORE creating optimized pictures (width attrs are still present)
+  detectVariantFromWidths(block);
+
   const ul = document.createElement('ul');
   [...block.children].forEach((row) => {
     const li = document.createElement('li');
@@ -47,17 +50,4 @@ export default function decorate(block) {
   });
 
   block.replaceChildren(ul);
-
-  // Detect variant once images have loaded (or immediately if already cached)
-  const imgs = [...block.querySelectorAll('img')];
-  const loaded = imgs.filter((img) => img.complete && img.naturalWidth > 0);
-  if (loaded.length === imgs.length) {
-    detectVariant(block);
-  } else {
-    // Wait for first image to load — enough to determine variant
-    const firstImg = imgs[0];
-    if (firstImg) {
-      firstImg.addEventListener('load', () => detectVariant(block), { once: true });
-    }
-  }
 }
