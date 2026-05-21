@@ -55,6 +55,10 @@
   line-height: 1.1;
 }
 
+.cards-promo.icon .cards-promo-body p {
+  font-size: var(--body-font-size-xs);
+}
+
 .cards-promo > ul > li:nth-child(2) .cards-promo-body p {
   color: #fff;
 }
@@ -71,6 +75,37 @@
   text-decoration: none;
   display: inline-block;
   margin-top: auto;
+}
+
+.cards-promo a.button:hover {
+  background-color: var(--color-accent-hover);
+}
+
+.cards-promo.icon a.button {
+  background-color: var(--color-brand-purple);
+  border-radius: 20px;
+  padding: 8px 24px;
+  font-size: var(--body-font-size-xs);
+}
+
+.cards-promo.icon a.button:hover {
+  background-color: var(--color-brand-purple-mid);
+}
+
+.cards-promo.icon > ul > li:first-child a.button {
+  background-color: var(--color-accent);
+}
+
+.cards-promo.icon > ul > li:last-child a.button {
+  background-color: var(--color-brand-purple);
+}
+
+.cards-promo.icon > ul > li:first-child a.button:hover {
+  background-color: var(--color-accent-hover);
+}
+
+.cards-promo.icon > ul > li:last-child a.button:hover {
+  background-color: var(--color-brand-purple-mid);
 }
 
 @media (width >= 900px) {
