@@ -429,13 +429,13 @@
     ]
   },
   {
-    "id": "video-card",
+    "id": "video-cards",
     "fields": [
       {
         "component": "reference",
         "valueType": "string",
         "name": "image",
-        "label": "Video Poster Image",
+        "label": "Image",
         "multi": false
       },
       {

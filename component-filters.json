@@ -115,11 +115,5 @@
     "components": [
       "stat-item"
     ]
-  },
-  {
-    "id": "video-cards",
-    "components": [
-      "video-card"
-    ]
   }
 ]
