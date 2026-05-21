@@ -39,8 +39,6 @@ jobs:
             Step 2 — review ONLY the diff output from Step 1. Do NOT call Read, Grep, Glob, or any other tool to open files. Every issue you flag must be traceable to a specific + line in the diff. If you cannot see the violation in the diff, do not flag it.
 
             WHAT TO IGNORE:
-            - Lines starting with space or - (unchanged/removed context) — not your concern
-            - blocks/[block]/[brand]/[block].css files (e.g. blocks/header/rinvoq/header.css) — compiled, skip entirely
             - Issues that were already present before this PR — if the + line is just moving or copying existing code, skip it
             - Stylistic preferences, minor nitpicks, or anything subjective
 
@@ -53,17 +51,15 @@ jobs:
 
             ---
 
-            EDS MULTI-BRAND RULES (check only what is visible in the diff):
+            EDS RULES (check only what is visible in the diff):
 
-            HARD CODING: no hex colors, px values, absolute URLs, brand names, API keys, or account IDs in core block files. Use CSS custom properties and relative paths.
+            HARD CODING: no hex colors, px values, absolute URLs, API keys, or account IDs in core block files. Use CSS custom properties and relative paths.
 
             CSS: all values via --color-*, --spacing-*, --body-font-size-* tokens with fallbacks var(--token, fallback). No inline style= attributes. Mobile-first (base = mobile, @media for desktop). No unjustified !important. Flat specificity.
 
             JS: const/let only (no var). await on all async calls. try/catch around fetch() and JSON.parse(). No console.log. null-check before property access. No innerHTML with unsanitised input.
 
             EDS BLOCK STANDARDS: export default function decorate(block). Query only within block (block.querySelector not document.querySelector). Disconnect IntersectionObserver after use. Handle missing DOM elements.
-
-            MULTI-BRAND ARCHITECTURE: core block CSS brand-agnostic. Brand styles only in blocks/[block]/[brand]/[block].css. No brand names in core files.
 
             BLOCK JSON MODEL: every field read in JS must exist in _block.json models array and vice versa.
 
