@@ -111,6 +111,12 @@
     ]
   },
   {
+    "id": "dosing-instructions",
+    "components": [
+      "dosing-card"
+    ]
+  },
+  {
     "id": "stats",
     "components": [
       "stat-item"
