@@ -1,0 +1,38 @@
+.columns-nav-cta-container {
+  background-color: var(--color-brand-purple);
+  padding: 48px 0;
+}
+
+.columns-nav-cta > div {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  text-align: center;
+}
+
+.columns-nav-cta > div > div {
+  flex: 1;
+}
+
+.columns-nav-cta h2 {
+  font-family: var(--font-family-body);
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 16px;
+}
+
+.columns-nav-cta .button-container a.button {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-brand-purple);
+}
+
+@media (width >= 900px) {
+  .columns-nav-cta > div {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 64px;
+  }
+}

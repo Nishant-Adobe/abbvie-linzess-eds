@@ -1,0 +1,39 @@
+{
+  "variantName": "columns-nav-cta",
+  "baseBlock": "columns",
+  "version": "1.0.0",
+  "created": "2026-05-21T14:50:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.linzess.com/savings-and-support",
+    "originPage": "Savings & Support landing page",
+    "blockPosition": "bottom"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "minimal",
+    "purpose": "bottom-nav-cta",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "heading + CTA per column",
+    "buttonCount": 2,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "bottom page navigation CTA sections",
+      "dark background dual-CTA layouts",
+      "page cross-linking sections with minimal content"
+    ],
+    "notSuitableFor": [
+      "image-based column layouts",
+      "content-heavy column sections",
+      "light background CTA sections"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/savings-and-support"],
+    "reuseCount": 1,
+    "lastUsed": "2026-05-21T14:50:00.000Z"
+  }
+}
