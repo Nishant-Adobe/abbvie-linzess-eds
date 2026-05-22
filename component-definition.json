@@ -83,6 +83,18 @@
       "id": "blocks",
       "components": [
         {
+          "title": "Accordion Legal",
+          "id": "accordion-legal",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/accordion/v1/accordion",
+                "template": {}
+              }
+            }
+          }
+        },
+        {
           "title": "Cards Article",
           "id": "cards-article",
           "plugins": {
@@ -248,6 +260,21 @@
           }
         },
         {
+          "title": "Columns Nav CTA",
+          "id": "columns-nav-cta",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/columns/v1/columns",
+                "template": {
+                  "columns": "2",
+                  "rows": "1"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Columns Quiz",
           "id": "columns-quiz",
           "plugins": {
@@ -377,6 +404,21 @@
                 "template": {
                   "name": "Stat Item",
                   "model": "stat-item"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Table Insurance",
+          "id": "table-insurance",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/table/v1/table",
+                "template": {
+                  "columns": "2",
+                  "rows": "7"
                 }
               }
             }

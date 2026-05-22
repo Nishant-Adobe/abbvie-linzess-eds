@@ -354,3 +354,103 @@ main .section.dark h6 {
 main .section.dark a:any-link {
   color: var(--color-footer-text);
 }
+
+/* ISI section (unstyled last content section) */
+main > .section:not([class*="-container"]):last-of-type h3 {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--color-brand-purple);
+}
+
+main > .section:not([class*="-container"]):last-of-type p,
+main > .section:not([class*="-container"]):last-of-type li {
+  font-size: 14px;
+  line-height: 1.4;
+  color: rgb(85 85 85);
+}
+
+/* Section intro pattern: eyebrow + heading (first default-content-wrapper in styled sections) */
+main .section.white-arc > .default-content-wrapper:first-child,
+main .section.off-white-arc > .default-content-wrapper:first-child {
+  text-align: center;
+  padding: 48px 24px 24px;
+}
+
+main .section.white-arc > .default-content-wrapper:first-child > p:first-child,
+main .section.off-white-arc > .default-content-wrapper:first-child > p:first-child {
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--color-brand-purple);
+  margin: 0 0 16px;
+}
+
+main .section.white-arc > .default-content-wrapper:first-child > h2,
+main .section.off-white-arc > .default-content-wrapper:first-child > h2 {
+  font-family: var(--font-family-heading);
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--color-brand-purple);
+  line-height: 1;
+  margin: 0 0 16px;
+}
+
+main .section.white-arc > .default-content-wrapper:first-child > p:nth-child(2),
+main .section.off-white-arc > .default-content-wrapper:first-child > p:nth-child(2) {
+  font-family: var(--font-family-heading);
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--color-brand-purple);
+  line-height: 1;
+  margin: 0;
+}
+
+main .section.off-white-arc > .default-content-wrapper:first-child > p:last-child {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-brand-purple);
+  margin: 24px 0 8px;
+}
+
+@media (width >= 900px) {
+  main .section.white-arc > .default-content-wrapper:first-child > h2,
+  main .section.off-white-arc > .default-content-wrapper:first-child > h2,
+  main .section.white-arc > .default-content-wrapper:first-child > p:nth-child(2),
+  main .section.off-white-arc > .default-content-wrapper:first-child > p:nth-child(2) {
+    font-size: 2.5rem;
+  }
+}
+
+/* Mid-section subheadings in styled sections */
+main .section.white-arc > .default-content-wrapper:nth-of-type(3) > p:first-child {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-brand-purple);
+  margin: 32px 0 16px;
+}
+
+/* Footnote text in off-white-arc section (after table block) */
+main .section.off-white-arc > .default-content-wrapper:nth-of-type(3) > p:first-child {
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: left;
+  font-weight: 400;
+  color: var(--color-text-primary);
+  margin: 8px 0;
+}
+
+/* Footnote/disclaimer text after blocks */
+main .section.white-arc > .default-content-wrapper:nth-of-type(n+4) > p:first-child,
+main .section.off-white-arc > .default-content-wrapper:nth-of-type(n+4) > p:first-child {
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 8px 0;
+}
+
+main .section.white-arc > .default-content-wrapper:nth-of-type(n+4) > p:last-child,
+main .section.off-white-arc > .default-content-wrapper:nth-of-type(n+4) > p:last-child {
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 8px 0;
+}

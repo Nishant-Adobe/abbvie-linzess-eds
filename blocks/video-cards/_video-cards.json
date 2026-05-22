@@ -33,6 +33,10 @@
   ],
   "models": [
     {
+      "id": "video-cards",
+      "fields": []
+    },
+    {
       "id": "video-card",
       "fields": [
         {

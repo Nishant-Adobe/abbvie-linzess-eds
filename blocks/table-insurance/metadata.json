@@ -1,0 +1,40 @@
+{
+  "variantName": "table-insurance",
+  "baseBlock": "table",
+  "version": "1.0.0",
+  "created": "2026-05-21T14:50:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.linzess.com/savings-and-support",
+    "originPage": "Savings & Support landing page",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "colored",
+    "density": "wide",
+    "purpose": "insurance-comparison",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "header-row + multiple data-rows, 2 columns (category + details)",
+    "buttonCount": 0,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "insurance cost comparison tables",
+      "two-column data tables with colored header and category column",
+      "financial information tables with bold category labels",
+      "coverage comparison charts"
+    ],
+    "notSuitableFor": [
+      "multi-column data tables (3+ columns)",
+      "tables without distinct category/value structure",
+      "simple text tables without styled headers"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/savings-and-support"],
+    "reuseCount": 1,
+    "lastUsed": "2026-05-21T14:50:00.000Z"
+  }
+}

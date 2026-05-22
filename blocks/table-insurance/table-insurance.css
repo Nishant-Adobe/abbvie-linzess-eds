@@ -1,0 +1,71 @@
+.table-insurance {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table-insurance table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.table-insurance thead tr {
+  background-color: var(--color-brand-purple-mid, #60579e);
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.table-insurance th {
+  padding: 16px 24px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.table-insurance td {
+  padding: 16px 24px;
+  text-align: left;
+  vertical-align: top;
+  font-size: 14px;
+}
+
+.table-insurance tbody tr {
+  border-bottom: 1px solid var(--color-border-light, #d8d8d8);
+}
+
+.table-insurance tbody tr td:first-child {
+  font-weight: 700;
+  background-color: var(--color-brand-purple-light, #d9d7f9);
+  color: var(--color-brand-purple);
+}
+
+.table-insurance tbody tr td:last-child {
+  background-color: #fff;
+}
+
+@media (width < 900px) {
+  .table-insurance table,
+  .table-insurance thead,
+  .table-insurance tbody,
+  .table-insurance th,
+  .table-insurance td,
+  .table-insurance tr {
+    display: block;
+  }
+
+  .table-insurance thead tr {
+    display: none;
+  }
+
+  .table-insurance tbody tr {
+    margin-bottom: 16px;
+    border: 1px solid var(--color-border-light, #d8d8d8);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .table-insurance tbody tr td {
+    padding: 16px;
+  }
+}

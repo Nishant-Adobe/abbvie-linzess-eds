@@ -1,0 +1,41 @@
+{
+  "definitions": [
+    {
+      "title": "Table Insurance",
+      "id": "table-insurance",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/table/v1/table",
+            "template": {
+              "columns": "2",
+              "rows": "7"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "table-insurance",
+      "fields": [
+        {
+          "component": "text",
+          "valueType": "number",
+          "name": "columns",
+          "value": "2",
+          "label": "Columns"
+        },
+        {
+          "component": "text",
+          "valueType": "number",
+          "name": "rows",
+          "value": "7",
+          "label": "Rows"
+        }
+      ]
+    }
+  ],
+  "filters": []
+}

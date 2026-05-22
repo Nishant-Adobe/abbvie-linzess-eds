@@ -102,5 +102,17 @@ export default function transform(hookName, element, payload) {
     WebImporter.DOMUtils.remove(element, [
       '.safety-bar.parbase',
     ]);
+
+    // Remove dimmer overlay (non-authorable modal backdrop)
+    // Found: <div class="abbv-dimmer"> at line 935 in savings-and-support cleaned.html
+    WebImporter.DOMUtils.remove(element, [
+      '.abbv-dimmer',
+    ]);
+
+    // Remove back-to-top button (non-authorable UI widget)
+    // Found: <button class="abbv-back-to-top ..."> at line 938 in savings-and-support cleaned.html
+    WebImporter.DOMUtils.remove(element, [
+      '.abbv-back-to-top',
+    ]);
   }
 }
