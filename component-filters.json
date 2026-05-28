@@ -30,6 +30,19 @@
     ]
   },
   {
+    "id": "accordion-legal",
+    "components": [
+      "accordion-legal-item"
+    ]
+  },
+  {
+    "id": "accordion-legal-item",
+    "components": [
+      "text",
+      "title"
+    ]
+  },
+  {
     "id": "cards-article",
     "components": [
       "card-article"
@@ -61,6 +74,21 @@
   },
   {
     "id": "columns-doctor-cta",
+    "components": [
+      "column"
+    ]
+  },
+  {
+    "id": "column",
+    "components": [
+      "text",
+      "image",
+      "button",
+      "title"
+    ]
+  },
+  {
+    "id": "columns-nav-cta",
     "components": [
       "column"
     ]

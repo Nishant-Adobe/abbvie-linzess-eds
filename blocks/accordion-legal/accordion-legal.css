@@ -1,0 +1,58 @@
+.accordion-legal {
+  margin: 32px 0 0;
+  padding: 0;
+}
+
+.accordion-legal-item {
+  border: none;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.accordion-legal-item-label {
+  cursor: pointer;
+  padding: 16px 48px 16px 16px;
+  background-color: var(--color-brand-purple);
+  color: #fff;
+  font-weight: 800;
+  font-size: 14px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.accordion-legal-item-label p {
+  margin: 0;
+  color: #fff;
+}
+
+.accordion-legal-item-label::after {
+  content: '+';
+  font-size: 1.5rem;
+  color: #fff;
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.2s;
+}
+
+.accordion-legal-item[open] .accordion-legal-item-label::after {
+  content: '-';
+}
+
+.accordion-legal-item-body {
+  padding: 16px;
+  background-color: #fff;
+  border: 1px solid var(--color-border-light);
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+}
+
+.accordion-legal-item-body p {
+  margin: 0 0 8px;
+  font-size: 12px;
+  line-height: 1.5;
+}

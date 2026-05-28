@@ -158,6 +158,10 @@
     ]
   },
   {
+    "id": "accordion-legal",
+    "fields": []
+  },
+  {
     "id": "card-article",
     "fields": [
       {
@@ -254,6 +258,25 @@
   },
   {
     "id": "columns-doctor-cta",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "number",
+        "name": "columns",
+        "value": "",
+        "label": "Columns"
+      },
+      {
+        "component": "text",
+        "valueType": "number",
+        "name": "rows",
+        "value": "",
+        "label": "Rows"
+      }
+    ]
+  },
+  {
+    "id": "columns-nav-cta",
     "fields": [
       {
         "component": "text",
@@ -425,6 +448,37 @@
         "value": "",
         "label": "Text",
         "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "table-insurance",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "number",
+        "name": "columns",
+        "value": "2",
+        "label": "Columns"
+      },
+      {
+        "component": "text",
+        "valueType": "number",
+        "name": "rows",
+        "value": "7",
+        "label": "Rows"
+      }
+    ]
+  },
+  {
+    "id": "video-cards",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "classes",
+        "value": "",
+        "label": "Classes"
       }
     ]
   },

@@ -1,0 +1,40 @@
+{
+  "variantName": "accordion-legal",
+  "baseBlock": "accordion",
+  "version": "1.0.0",
+  "created": "2026-05-21T14:50:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.linzess.com/savings-and-support",
+    "originPage": "Savings & Support landing page",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "legal-terms",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "title + long-form legal text",
+    "buttonCount": 0,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "legal terms and conditions sections",
+      "program eligibility criteria",
+      "expandable disclaimer content",
+      "single-item accordion for lengthy legal text"
+    ],
+    "notSuitableFor": [
+      "FAQ sections with multiple questions",
+      "content with images or media",
+      "interactive multi-panel accordions"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/savings-and-support"],
+    "reuseCount": 1,
+    "lastUsed": "2026-05-21T14:50:00.000Z"
+  }
+}

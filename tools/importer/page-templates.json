@@ -12,35 +12,51 @@
       "blocks": [
         {
           "name": "hero-resources",
-          "instances": [".hero-container.uppercase"]
+          "instances": [
+            ".hero-container.uppercase"
+          ]
         },
         {
           "name": "cards-article",
-          "instances": [".flexbox-article-cards.resources-flexbox-column"]
+          "instances": [
+            ".flexbox-article-cards.resources-flexbox-column"
+          ]
         },
         {
           "name": "cards-tips",
-          "instances": [".wellness-tips-cards"]
+          "instances": [
+            ".wellness-tips-cards"
+          ]
         },
         {
           "name": "columns-doctor-cta",
-          "instances": [".resources-tout"]
+          "instances": [
+            ".resources-tout"
+          ]
         },
         {
           "name": "cards-resource",
-          "instances": [".flexbox-cards.resources-page"]
+          "instances": [
+            ".flexbox-cards.resources-page"
+          ]
         },
         {
           "name": "video-cards",
-          "instances": [".flexbox-video-cards--single"]
+          "instances": [
+            ".flexbox-video-cards--single"
+          ]
         },
         {
           "name": "columns-savings",
-          "instances": [".savings-card-tout"]
+          "instances": [
+            ".savings-card-tout"
+          ]
         },
         {
           "name": "columns",
-          "instances": [".bottom-nav .abbv-flex-container-v2"]
+          "instances": [
+            ".bottom-nav .abbv-flex-container-v2"
+          ]
         }
       ],
       "sections": [
@@ -49,7 +65,9 @@
           "name": "Hero Header",
           "selector": ".hero-container.uppercase",
           "style": null,
-          "blocks": ["hero-resources"],
+          "blocks": [
+            "hero-resources"
+          ],
           "defaultContent": []
         },
         {
@@ -65,7 +83,9 @@
           "name": "Healthy Routines",
           "selector": ".abbv-container.background-white.background-white-arc",
           "style": "white-arc",
-          "blocks": ["cards-article"],
+          "blocks": [
+            "cards-article"
+          ],
           "defaultContent": []
         },
         {
@@ -73,7 +93,11 @@
           "name": "Wellness Tips",
           "selector": ".abbv-container.background-dark-purple.background-dark-purple-arc",
           "style": "dark-purple-arc",
-          "blocks": ["cards-tips", "cards-article", "columns-doctor-cta"],
+          "blocks": [
+            "cards-tips",
+            "cards-article",
+            "columns-doctor-cta"
+          ],
           "defaultContent": []
         },
         {
@@ -81,7 +105,9 @@
           "name": "Community Resources",
           "selector": ".abbv-container.background-off-white",
           "style": "off-white-arc",
-          "blocks": ["cards-resource"],
+          "blocks": [
+            "cards-resource"
+          ],
           "defaultContent": []
         },
         {
@@ -89,7 +115,9 @@
           "name": "Video Testimonial",
           "selector": ".flexbox-video-cards--single",
           "style": null,
-          "blocks": ["video-cards"],
+          "blocks": [
+            "video-cards"
+          ],
           "defaultContent": []
         },
         {
@@ -97,7 +125,9 @@
           "name": "Savings Offer",
           "selector": ".savings-card-tout",
           "style": null,
-          "blocks": ["columns-savings"],
+          "blocks": [
+            "columns-savings"
+          ],
           "defaultContent": []
         },
         {
@@ -105,7 +135,9 @@
           "name": "Bottom Navigation CTAs",
           "selector": ".bottom-nav",
           "style": "dark-purple-arc",
-          "blocks": ["columns"],
+          "blocks": [
+            "columns"
+          ],
           "defaultContent": []
         },
         {
@@ -114,7 +146,143 @@
           "selector": ".abbv-inline-use-isi",
           "style": null,
           "blocks": [],
-          "defaultContent": [".linzess-use-statement h3", ".linzess-use-statement p", ".linzess-isi-iri h3", ".linzess-isi-iri ul", ".linzess-isi-iri p"]
+          "defaultContent": [
+            ".linzess-use-statement h3",
+            ".linzess-use-statement p",
+            ".linzess-isi-iri h3",
+            ".linzess-isi-iri ul",
+            ".linzess-isi-iri p"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "savings-and-support",
+      "urls": [
+        "https://www.linzess.com/savings-and-support"
+      ],
+      "description": "Savings and support page with cost savings programs, insurance information, patient support resources, and assistance options for Linzess",
+      "blocks": [
+        {
+          "name": "hero-resources",
+          "instances": [
+            ".hero-container.uppercase"
+          ]
+        },
+        {
+          "name": "columns-savings",
+          "instances": [
+            ".savings-card-tout"
+          ]
+        },
+        {
+          "name": "cards-promo",
+          "instances": [
+            ".savings-card-cards"
+          ]
+        },
+        {
+          "name": "accordion-legal",
+          "instances": [
+            ".abbv-accordion-single"
+          ]
+        },
+        {
+          "name": "table-insurance",
+          "instances": [
+            ".table-container"
+          ]
+        },
+        {
+          "name": "cards-resource",
+          "instances": [
+            ".abbv-container.background-off-white .abbv-flex-container-v2.flexbox-cards"
+          ]
+        },
+        {
+          "name": "columns-doctor-cta",
+          "instances": [
+            ".resources-tout"
+          ]
+        },
+        {
+          "name": "columns-nav-cta",
+          "instances": [
+            ".bottom-nav .abbv-flex-container-v2"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "section-1-hero",
+          "name": "Hero",
+          "selector": ".hero-container.uppercase",
+          "style": null,
+          "blocks": [
+            "hero-resources"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-2-savings",
+          "name": "Savings",
+          "selector": ".abbv-container.background-white.background-white-arc",
+          "style": "white-arc",
+          "blocks": [
+            "columns-savings",
+            "cards-promo",
+            "accordion-legal"
+          ],
+          "defaultContent": [
+            ".abbv-rich-text.text-align-center.narrow-spacing.max-auto.padding-lr-8-m .eyebrow",
+            ".abbv-rich-text.text-align-center.narrow-spacing.max-auto.padding-lr-8-m .divider",
+            ".abbv-rich-text.text-align-center.narrow-spacing.max-auto.padding-lr-8-m .heading-1",
+            ".abbv-rich-text.text-align-center.narrow-spacing.max-auto .heading-2",
+            ".abbv-rich-text.footnote.text-align-left"
+          ]
+        },
+        {
+          "id": "section-3-financial-support",
+          "name": "Financial Support",
+          "selector": ".abbv-container.background-off-white.background-off-white-arc",
+          "style": "off-white-arc",
+          "blocks": [
+            "table-insurance",
+            "cards-resource",
+            "columns-doctor-cta"
+          ],
+          "defaultContent": [
+            ".savings-table .eyebrow",
+            ".savings-table .divider",
+            ".savings-table .heading-1",
+            ".savings-table .mb32",
+            ".savings-table .heading-2",
+            ".abbv-rich-text.footnote.text-align-left.max-auto.mb4"
+          ]
+        },
+        {
+          "id": "section-4-bottom-nav",
+          "name": "Bottom Navigation CTAs",
+          "selector": ".abbv-container.background-dark-purple.background-dark-purple-arc.bottom-nav",
+          "style": "dark-purple-arc",
+          "blocks": [
+            "columns-nav-cta"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-5-isi",
+          "name": "ISI",
+          "selector": ".abbv-inline-use-isi",
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            ".linzess-use-statement h3",
+            ".linzess-use-statement p",
+            ".linzess-isi-iri h3",
+            ".linzess-isi-iri ul",
+            ".linzess-isi-iri p"
+          ]
         }
       ]
     }

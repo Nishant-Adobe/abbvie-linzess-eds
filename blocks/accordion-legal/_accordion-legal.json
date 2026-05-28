@@ -1,0 +1,37 @@
+{
+  "definitions": [
+    {
+      "title": "Accordion Legal",
+      "id": "accordion-legal",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/accordion/v1/accordion",
+            "template": {}
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "accordion-legal",
+      "fields": []
+    }
+  ],
+  "filters": [
+    {
+      "id": "accordion-legal",
+      "components": [
+        "accordion-legal-item"
+      ]
+    },
+    {
+      "id": "accordion-legal-item",
+      "components": [
+        "text",
+        "title"
+      ]
+    }
+  ]
+}

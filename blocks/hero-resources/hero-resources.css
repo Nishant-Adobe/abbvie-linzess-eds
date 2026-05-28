@@ -5,23 +5,22 @@
 
 .hero-resources {
   position: relative;
-  padding: 40px 24px;
-  min-height: 300px;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
 }
 
-.hero-resources h1 {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  color: var(--background-color);
+.hero-resources > div:first-child {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
 }
 
 .hero-resources picture {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  object-fit: cover;
-  box-sizing: border-box;
+  display: block;
+  height: 100%;
+  width: 100%;
 }
 
 .hero-resources img {
@@ -30,8 +29,86 @@
   height: 100%;
 }
 
+.hero-resources > div:last-child {
+  position: relative;
+  z-index: 1;
+  padding: 40px 24px;
+  max-width: 1200px;
+}
+
+.hero-resources > div:last-child > div {
+  color: #fff;
+}
+
+.hero-resources p:first-child {
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #fff;
+  margin: 0 0 8px;
+}
+
+.hero-resources h1 {
+  font-family: var(--font-family-heading);
+  font-size: 2rem;
+  font-weight: 400;
+  color: #fff;
+  line-height: 1;
+  margin: 0;
+}
+
+/* Jump navigation bar below hero */
+.hero-resources-container > .default-content-wrapper {
+  background-color: var(--color-brand-purple);
+  padding: 0 24px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  max-width: unset;
+}
+
+.hero-resources-container > .default-content-wrapper > p {
+  display: none;
+}
+
+.hero-resources-container > .default-content-wrapper ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 50px;
+}
+
+.hero-resources-container > .default-content-wrapper ul a {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+  line-height: 50px;
+}
+
+.hero-resources-container > .default-content-wrapper ul a:hover {
+  text-decoration: underline;
+}
+
 @media (width >= 900px) {
   .hero-resources {
-    padding: 40px 32px;
+    min-height: 550px;
+  }
+
+  .hero-resources > div:last-child {
+    padding: 60px 48px;
+  }
+
+  .hero-resources h1 {
+    font-size: 3.5rem;
+  }
+
+  .hero-resources p:first-child {
+    font-size: 14px;
   }
 }

@@ -21,6 +21,7 @@
   background-color: var(--color-brand-purple-light);
   display: flex;
   flex-direction: column;
+  padding: 0 24px 40px;
 }
 
 /* ----- Default variant: savings card (image left, content right) ----- */
@@ -189,7 +190,7 @@
   padding: 14px 48px 14px 28px;
   font-family: var(--font-family-body);
   font-size: var(--body-font-size-s);
-  font-weight: 700;
+  font-weight: 800;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
@@ -233,9 +234,22 @@
   .cards-promo.icon > ul {
     flex-direction: row;
     align-items: stretch;
+    gap: 16px;
   }
 
   .cards-promo.icon > ul > li {
     flex: 1;
+  }
+
+  .cards-promo .cards-promo-body:first-child img {
+    width: 105px;
+  }
+
+  .cards-promo .cards-promo-body:last-child p:first-of-type {
+    font-size: 24px;
+  }
+
+  .cards-promo a.button {
+    padding: 16px 56px 16px 32px;
   }
 }
