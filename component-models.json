@@ -472,7 +472,15 @@
   },
   {
     "id": "video-cards",
-    "fields": []
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "classes",
+        "value": "",
+        "label": "Classes"
+      }
+    ]
   },
   {
     "id": "video-card",
