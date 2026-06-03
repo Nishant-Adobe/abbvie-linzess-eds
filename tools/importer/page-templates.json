@@ -285,6 +285,14 @@
           ]
         }
       ]
+    },
+    {
+      "name": "find-relief",
+      "urls": [
+        "https://www.linzess.com/find-relief"
+      ],
+      "description": "Find Relief page with information about talking to a doctor, how to take LINZESS, and getting started with treatment",
+      "blocks": []
     }
   ]
 }
