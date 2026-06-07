@@ -1,27 +1,94 @@
+/* Block: cards-article -- article teaser cards
+   Source values from https://www.linzess.com/resources */
+
 .cards-article > ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
-  gap: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
 }
 
 .cards-article > ul > li {
-  border: 1px solid #dadada;
-  background-color: var(--background-color);
-}
-
-.cards-article .cards-article-card-body {
-  margin: 16px;
+  background-color: var(--color-brand-purple-light);
+  border-radius: var(--radius-l);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .cards-article .cards-article-card-image {
   line-height: 0;
 }
 
+.cards-article .cards-article-card-image picture {
+  display: block;
+}
+
 .cards-article > ul > li img {
   width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
+  height: auto;
+  display: block;
+}
+
+.cards-article .cards-article-card-body {
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.cards-article .cards-article-card-body p {
+  font-size: var(--body-font-size-m);
+  font-family: var(--font-family-body);
+  line-height: normal;
+  color: var(--color-text-primary);
+  margin: 0 0 20px;
+}
+
+.cards-article .cards-article-card-body p:first-child {
+  color: var(--color-brand-purple);
+  font-weight: var(--font-weight-bold);
+}
+
+.cards-article .cards-article-card-body p:last-child {
+  margin-top: auto;
+  margin-bottom: 0;
+}
+
+/* Link styled as plain underline text, not EDS button */
+.cards-article .cards-article-card-body a.button:any-link,
+.cards-article .cards-article-card-body a:any-link {
+  color: var(--color-brand-purple);
+  font-size: var(--body-font-size-xs);
+  font-weight: var(--font-weight-extrabold);
+  text-decoration: underline;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  white-space: normal;
+  text-align: left;
+}
+
+.cards-article .cards-article-card-body a.button:hover,
+.cards-article .cards-article-card-body a:hover {
+  background-color: transparent;
+  color: var(--color-link-hover);
+}
+
+/* Reset button-container wrapper that EDS adds */
+.cards-article .cards-article-card-body .button-container {
+  margin: 0;
+}
+
+@media (width >= 900px) {
+  .cards-article > ul > li {
+    width: 300px;
+  }
 }

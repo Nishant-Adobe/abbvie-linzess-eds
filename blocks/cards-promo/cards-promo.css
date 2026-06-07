@@ -1,241 +1,183 @@
-/* ============================================================
-   cards-promo block
-   Two variants driven by block classes:
-     (default)  — savings card: horizontal image-left layout
-     icon       — 2-col icon cards (stacked icon + text)
-   ============================================================ */
+/* cards-promo block — icon cards (Text / Call / Click sign-up options)
+   Pattern: 3 centered icon cards with overlapping icon, heading, body, CTA
+   Mobile: stacked column with large gap
+   Desktop (>=900px): side-by-side row with equal width */
 
-/* ----- Shared base ----- */
+/* ----- Container ----- */
+
+/* Override global .icon styles when .icon is applied to the block itself */
+.cards-promo.block {
+  margin-top: 80px;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .cards-promo > ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 80px;
 }
 
 .cards-promo > ul > li {
-  border-radius: 16px;
-  overflow: hidden;
-  background-color: var(--color-brand-purple-light);
+  border-radius: var(--radius-l);
+  overflow: visible;
   display: flex;
-  flex-direction: column;
-}
-
-/* ----- Default variant: savings card (image left, content right) ----- */
-.cards-promo:not(.icon) > ul > li {
-  flex-direction: column;
-}
-
-.cards-promo:not(.icon) .cards-promo-image {
-  line-height: 0;
-  flex-shrink: 0;
-}
-
-.cards-promo:not(.icon) .cards-promo-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.cards-promo:not(.icon) .cards-promo-body {
-  padding: 32px 24px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 16px;
-  flex: 1;
-  justify-content: center;
-}
-
-.cards-promo:not(.icon) .cards-promo-body p {
-  font-family: var(--font-family-body);
-  font-size: var(--body-font-size-m);
-  color: var(--color-text-primary);
-  margin: 0;
-  line-height: 1.5;
-}
-
-.cards-promo:not(.icon) .cards-promo-body p:first-child {
-  font-family: var(--font-family-heading);
-  font-size: var(--heading-font-size-l);
-  color: var(--color-brand-purple);
-  text-transform: uppercase;
-  line-height: 1.1;
-  margin: 0;
-}
-
-.cards-promo:not(.icon) a.button {
-  background-color: var(--color-brand-purple);
-  color: #fff;
-  border: none;
-  border-radius: 16px;
-  padding: 14px 48px 14px 28px;
-  font-family: var(--font-family-body);
-  font-size: var(--body-font-size-s);
-  font-weight: 700;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 8px;
-  position: relative;
-}
-
-.cards-promo:not(.icon) a.button::after {
-  content: '›';
-  position: absolute;
-  right: 20px;
-  font-size: 1.2em;
-  font-weight: 400;
-}
-
-.cards-promo:not(.icon) a.button:hover {
-  background-color: var(--color-link-hover);
-  text-decoration: none;
-}
-
-@media (width >= 600px) {
-  .cards-promo:not(.icon) > ul > li {
-    flex-direction: row;
-    align-items: stretch;
-  }
-
-  .cards-promo:not(.icon) .cards-promo-image {
-    width: 40%;
-    max-width: 340px;
-  }
-
-  .cards-promo:not(.icon) .cards-promo-image img {
-    height: 100%;
-  }
-
-  .cards-promo:not(.icon) .cards-promo-body {
-    padding: 40px 32px;
-  }
-}
-
-/* ----- Icon variant: 2-col icon cards ----- */
-.cards-promo.icon > ul {
-  flex-direction: column;
-  gap: 16px;
-}
-
-.cards-promo.icon > ul > li {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 0 32px 40px;
+  padding: 0 16px 40px;
   background-color: var(--color-brand-purple-light);
 }
 
-/* First icon card: dark purple background, white text */
-.cards-promo.icon > ul > li:first-child {
+/* ----- Alternating card colors: 2nd card is dark purple ----- */
+.cards-promo > ul > li:nth-child(2) {
   background-color: var(--color-brand-purple);
 }
 
-.cards-promo.icon .cards-promo-image {
+/* ----- Icon image ----- */
+.cards-promo .cards-promo-image {
   line-height: 0;
-  padding-top: 40px;
-  padding-bottom: 24px;
+  text-align: center;
+  padding: 0;
+  margin: 0;
 }
 
-.cards-promo.icon .cards-promo-image img {
-  width: 106px;
-  height: 106px;
+.cards-promo .cards-promo-image picture {
+  display: inline-block;
+}
+
+.cards-promo .cards-promo-image img {
+  width: 105px;
+  height: 105px;
   object-fit: contain;
-  display: block;
-  margin: 0 auto;
+  display: inline-block;
+  margin-top: -50px;
 }
 
-.cards-promo.icon .cards-promo-body {
+/* ----- Body content ----- */
+.cards-promo .cards-promo-body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
   flex: 1;
+  width: 100%;
 }
 
-.cards-promo.icon .cards-promo-body p {
-  font-family: var(--font-family-body);
-  font-size: var(--body-font-size-s);
-  color: var(--color-text-primary);
+/* Reset all paragraph margins in body */
+.cards-promo .cards-promo-body p {
   margin: 0;
-  line-height: 1.5;
 }
 
-.cards-promo.icon .cards-promo-body p:first-child {
-  font-family: var(--font-family-heading);
-  font-size: 1.5rem;
-  color: var(--color-brand-purple);
-  text-transform: none;
-  line-height: 1.1;
-}
-
-/* First card (dark purple) — all text white */
-.cards-promo.icon > ul > li:first-child .cards-promo-body p {
-  color: #fff;
-}
-
-.cards-promo.icon > ul > li:first-child .cards-promo-body p:first-child {
-  color: #fff;
-}
-
-/* Buttons */
-.cards-promo.icon a.button {
-  border-radius: 16px;
-  padding: 14px 48px 14px 28px;
+/* Heading (first paragraph) */
+.cards-promo .cards-promo-body p:first-child {
   font-family: var(--font-family-body);
-  font-size: var(--body-font-size-s);
-  font-weight: 700;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  margin-top: 8px;
-  position: relative;
-}
-
-.cards-promo.icon a.button::after {
-  content: '›';
-  position: absolute;
-  right: 20px;
-  font-size: 1.2em;
-  font-weight: 400;
-}
-
-/* First card button: white bg, purple text */
-.cards-promo.icon > ul > li:first-child a.button {
-  background-color: #fff;
+  font-size: 24px;
+  font-weight: var(--font-weight-bold);
   color: var(--color-brand-purple);
-  border: none;
+  line-height: normal;
+  margin: 0 0 20px;
 }
 
-.cards-promo.icon > ul > li:first-child a.button:hover {
-  background-color: var(--color-brand-purple-light);
-  text-decoration: none;
+/* Body text (second paragraph) */
+.cards-promo .cards-promo-body p:nth-child(2) {
+  font-family: var(--font-family-body);
+  font-size: 16px;
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-primary);
+  line-height: normal;
+  margin: 0 0 20px;
 }
 
-/* Second card button: purple bg, white text */
-.cards-promo.icon > ul > li:last-child a.button {
+/* Footnote paragraph (dagger symbol — inline in source, separate <p> in EDS) */
+.cards-promo .cards-promo-body p:nth-child(3):not(.button-container) {
+  font-size: 12px;
+  color: var(--color-text-primary);
+  margin: 0 0 10px;
+}
+
+/* Button container — push to bottom of card */
+.cards-promo .cards-promo-body .button-container {
+  margin-top: auto;
+  padding-top: 10px;
+}
+
+/* ----- Dark card (2nd) — white text ----- */
+.cards-promo > ul > li:nth-child(2) .cards-promo-body p:first-child {
+  color: #fff;
+}
+
+.cards-promo > ul > li:nth-child(2) .cards-promo-body p:nth-child(2) {
+  color: #fff;
+}
+
+.cards-promo > ul > li:nth-child(2) .cards-promo-body p:nth-child(3):not(.button-container) {
+  color: #fff;
+}
+
+/* ----- CTA buttons ----- */
+.cards-promo a.button:any-link {
   background-color: var(--color-brand-purple);
   color: #fff;
   border: none;
+  border-radius: var(--radius-l);
+  padding: 16px 59px 16px 32px;
+  font-family: var(--font-family-body);
+  font-size: 0.9rem;
+  font-weight: var(--font-weight-extrabold);
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  position: relative;
+  line-height: normal;
+  white-space: nowrap;
+  margin: 0;
 }
 
-.cards-promo.icon > ul > li:last-child a.button:hover {
+.cards-promo a.button::after {
+  content: '';
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='9 18 15 12 9 6'%3E%3C/polyline%3E%3C/svg%3E") no-repeat center;
+  background-size: contain;
+}
+
+.cards-promo a.button:hover {
   background-color: var(--color-link-hover);
   text-decoration: none;
 }
 
+/* Dark card (2nd) — white CTA with purple text */
+.cards-promo > ul > li:nth-child(2) a.button:any-link {
+  background-color: #fff;
+  color: var(--color-brand-purple);
+}
+
+.cards-promo > ul > li:nth-child(2) a.button::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23422e83' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='9 18 15 12 9 6'%3E%3C/polyline%3E%3C/svg%3E");
+}
+
+.cards-promo > ul > li:nth-child(2) a.button:hover {
+  background-color: var(--color-brand-purple-light);
+}
+
+/* ----- Desktop: row layout ----- */
 @media (width >= 900px) {
-  .cards-promo.icon > ul {
+  .cards-promo > ul {
     flex-direction: row;
+    gap: 16px;
     align-items: stretch;
   }
 
-  .cards-promo.icon > ul > li {
+  .cards-promo > ul > li {
     flex: 1;
+    padding: 0 28px 40px;
   }
 }

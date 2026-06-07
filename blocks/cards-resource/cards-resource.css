@@ -1,27 +1,129 @@
+/* Block: cards-resource -- Community resource icon cards */
+
 .cards-resource > ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
-  gap: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .cards-resource > ul > li {
-  border: 1px solid #dadada;
-  background-color: var(--background-color);
+  background-color: var(--color-brand-purple);
+  border-radius: var(--radius-l);
+  padding: 50px 32px 40px;
+  text-align: center;
+  position: relative;
+  overflow: visible;
 }
 
-.cards-resource .cards-resource-card-body {
-  margin: 16px;
+/* Alternating card: light purple */
+.cards-resource > ul > li:nth-child(even) {
+  background-color: var(--color-brand-purple-light);
 }
 
+/* Icon image container */
 .cards-resource .cards-resource-card-image {
+  display: flex;
+  justify-content: center;
+  margin-top: -50px;
+  margin-bottom: 16px;
   line-height: 0;
 }
 
-.cards-resource > ul > li img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
+.cards-resource .cards-resource-card-image picture {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 105px;
+  height: 105px;
+  border-radius: 50%;
+  background-color: var(--color-surface);
+  overflow: hidden;
+}
+
+.cards-resource .cards-resource-card-image img {
+  width: 70px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Card body */
+.cards-resource .cards-resource-card-body {
+  margin: 0;
+}
+
+/* Heading (h2) - dark card: white */
+.cards-resource > ul > li h2 {
+  font-size: 24px;
+  font-weight: var(--font-weight-bold);
+  font-family: var(--font-family-body);
+  font-style: normal;
+  line-height: normal;
+  color: #fff;
+  margin: 0 0 20px;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+/* Heading - light card: purple */
+.cards-resource > ul > li:nth-child(even) h2 {
+  color: var(--color-brand-purple);
+}
+
+/* Description paragraph */
+.cards-resource .cards-resource-card-body p {
+  font-size: 16px;
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-regular);
+  line-height: normal;
+  color: #fff;
+  margin: 0 0 20px;
+}
+
+/* Description - light card: dark gray */
+.cards-resource > ul > li:nth-child(even) .cards-resource-card-body p {
+  color: var(--color-text-primary);
+}
+
+/* Button container */
+.cards-resource .button-container {
+  margin-top: 20px;
+}
+
+/* CTA button - dark card: white bg, purple text */
+.cards-resource > ul > li a.button:any-link {
+  background-color: var(--color-surface);
+  color: var(--color-brand-purple);
+  padding: 16px 32px;
+  border-radius: var(--radius-l);
+  font-size: 14.4px;
+  font-weight: var(--font-weight-extrabold);
+  font-family: var(--font-family-body);
+  display: inline-block;
+  border: none;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* Button hover states */
+.cards-resource > ul > li a.button:hover {
+  opacity: 0.9;
+}
+
+/* CTA button - light card: purple bg, white text */
+.cards-resource > ul > li:nth-child(even) a.button:any-link {
+  background-color: var(--color-brand-purple);
+  color: #fff;
+}
+
+@media (width >= 900px) {
+  .cards-resource > ul {
+    flex-direction: row;
+  }
+
+  .cards-resource > ul > li {
+    flex: 1 1 0%;
+  }
 }

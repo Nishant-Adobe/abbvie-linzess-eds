@@ -1,48 +1,59 @@
+/* Stats Block - Migrated from linzess.com homepage */
+
 .stats > ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 60px;
 }
 
 .stats > ul > li {
-  border-radius: 16px;
-  padding: 32px 24px;
+  border-radius: var(--radius-l);
+  padding: 0 16px 40px;
   text-align: center;
   background-color: var(--color-brand-purple-light);
 }
 
 .stats > ul > li:nth-child(even) {
-  background-color: #f5f5f5;
+  background-color: var(--color-background);
 }
 
 .stats .stats-card-body p:first-child {
-  width: 160px;
-  height: 160px;
+  width: 96px;
+  height: 96px;
   border-radius: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 16px;
+  margin: -50px auto 0;
   font-family: var(--font-family-body);
-  font-weight: 700;
+  font-weight: var(--font-weight-bold);
   color: var(--color-brand-purple);
-  background-color: #f5f5f5;
+  background-color: var(--color-background);
   line-height: 1.1;
+  font-size: 1.0625rem;
+}
+
+.stats .stats-card-body p:first-child span {
+  font-size: 2.0625rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-brand-purple);
+  line-height: 1;
 }
 
 .stats .stats-card-body p:last-child {
   font-family: var(--font-family-body);
   font-size: var(--body-font-size-s);
   color: var(--color-brand-purple);
-  font-weight: 700;
+  font-weight: var(--font-weight-bold);
   line-height: 1.4;
   margin: 0;
-  max-width: 280px;
+  margin-bottom: 24px;
   margin-inline: auto;
+  max-width: 280px;
 }
 
 .stats > ul > li:nth-child(even) .stats-card-body p:first-child {
@@ -52,11 +63,23 @@
 @media (width >= 900px) {
   .stats > ul {
     flex-direction: row;
+    gap: 16px;
     align-items: stretch;
   }
 
   .stats > ul > li {
     flex: 1;
-    padding: 40px 24px;
+    padding: 0 32px 40px;
+  }
+
+  .stats .stats-card-body p:first-child {
+    width: 136px;
+    height: 136px;
+    margin-top: -68px;
+    font-size: 1.5rem;
+  }
+
+  .stats .stats-card-body p:first-child span {
+    font-size: 3rem;
   }
 }

@@ -15,4 +15,26 @@ export default function decorate(block) {
       }
     });
   });
+
+  // Detect savings card variant and apply variant class + CSS
+  const img = block.querySelector('img');
+  const hasSavingsContent = img && img.alt && img.alt.toLowerCase().includes('eligible');
+  if (hasSavingsContent) {
+    block.classList.add('columns-savings');
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = `${window.hlx.codeBasePath}/blocks/columns-savings/columns-savings.css`;
+    document.head.appendChild(link);
+  }
+
+  // Detect doctor-cta variant (image + "Ready to Talk" heading in purple arc section)
+  const h2 = block.querySelector('h2');
+  const hasDoctorCta = h2 && h2.textContent.includes('Ready to Talk');
+  if (hasDoctorCta) {
+    block.classList.add('columns-doctor-cta');
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = `${window.hlx.codeBasePath}/blocks/columns-doctor-cta/columns-doctor-cta.css`;
+    document.head.appendChild(link);
+  }
 }

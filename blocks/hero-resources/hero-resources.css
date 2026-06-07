@@ -1,37 +1,98 @@
-.hero-resources-container .hero-resources-wrapper {
-  max-width: unset;
-  padding: 0;
+/* hero-resources: full-width hero with background image and text overlay */
+
+/* Full-width wrapper override */
+.hero-resources-wrapper {
+  max-width: 100% !important;
+  padding: 0 !important;
 }
 
+/* Block container */
 .hero-resources {
   position: relative;
-  padding: 40px 24px;
   min-height: 300px;
+  color: #fff;
 }
 
-.hero-resources h1 {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  color: var(--background-color);
+/* Row 1: image row - positioned as background */
+.hero-resources > div:first-child {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* Row 2: text content overlay */
+.hero-resources > div:last-child {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  min-height: 300px;
+  padding: 50px var(--section-padding-inline) 20px;
+}
+
+.hero-resources > div:first-child > div {
+  height: 100%;
+}
+
+.hero-resources > div:last-child > div {
+  max-width: 960px;
 }
 
 .hero-resources picture {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  object-fit: cover;
-  box-sizing: border-box;
+  display: block;
+  height: 100%;
 }
 
 .hero-resources img {
-  object-fit: cover;
   width: 100%;
   height: 100%;
+  object-fit: cover;
+}
+
+/* Eyebrow text (first p) */
+.hero-resources p {
+  font-family: var(--font-family-body);
+  font-size: 12px;
+  font-weight: var(--font-weight-extrabold);
+  line-height: normal;
+  color: #fff;
+  margin: 0 0 24px;
+  text-transform: uppercase;
+}
+
+/* Orange accent divider line after eyebrow */
+.hero-resources p::after {
+  content: '';
+  display: block;
+  width: 64px;
+  height: 5px;
+  background-color: var(--color-accent);
+  border-radius: 3px;
+  margin-top: 20px;
+}
+
+/* Heading */
+.hero-resources h1 {
+  font-family: var(--font-family-heading);
+  font-size: var(--heading-font-size-xxl);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-tight);
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0;
 }
 
 @media (width >= 900px) {
   .hero-resources {
-    padding: 40px 32px;
+    min-height: 450px;
+  }
+
+  .hero-resources > div:last-child {
+    min-height: 450px;
+    padding: 80px 32px 60px;
+  }
+
+  .hero-resources h1 {
+    max-width: 600px;
   }
 }

@@ -1,94 +1,131 @@
-.hero-home-container .hero-home-wrapper {
-  max-width: unset;
-  padding: 0;
+/* hero-home block - full-width hero with background image, text overlay, and CTA */
+
+/* Full-width wrapper override */
+.hero-home-wrapper {
+  max-width: 100% !important;
+  padding: 0 !important;
 }
 
+/* Block root */
 .hero-home {
   position: relative;
   display: flex;
   overflow: hidden;
+  color: #fff;
 }
 
+/* Background image container */
 .hero-home .hero-home-bg {
   width: 100%;
   line-height: 0;
+}
+
+.hero-home .hero-home-bg picture {
+  display: block;
+  width: 100%;
 }
 
 .hero-home .hero-home-bg img {
   width: 100%;
   height: auto;
   display: block;
+  object-fit: cover;
 }
 
+/* Content overlay - positioned absolutely over the image */
 .hero-home > div:last-child {
   position: absolute;
   inset: 0;
   display: flex;
-  justify-content: center;
+  align-items: flex-start;
   padding: 0;
 }
 
+/* Inner content area */
 .hero-home .hero-home-content {
   max-width: 1000px;
-  padding: 75px 0 0;
+  padding: 40px 20px 20px;
   margin: 20px;
   text-align: left;
 }
 
-.hero-home p {
-  font-family: lato, sans-serif;
+/* Body text paragraphs */
+.hero-home .hero-home-content p {
+  font-family: var(--font-family-body);
   font-size: 14px;
-  font-weight: 400;
+  font-weight: var(--font-weight-regular);
   color: #fff;
   line-height: normal;
   margin: 0 0 20px;
 }
 
+/* Eyebrow text (first paragraph - more specific, overrides general p) */
+.hero-home .hero-home-content p:first-child {
+  font-size: 12px;
+  font-weight: var(--font-weight-extrabold);
+  text-transform: uppercase;
+  margin: 0 0 24px;
+}
+
+/* Orange accent divider line after eyebrow */
+.hero-home .hero-home-content p:first-child::after {
+  content: '';
+  display: block;
+  width: 64px;
+  height: 5px;
+  background-color: var(--color-accent);
+  border-radius: 3px;
+  margin-top: 20px;
+}
+
+/* Heading */
 .hero-home h1 {
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 56px;
-  font-weight: 400;
+  font-family: var(--font-family-heading);
+  font-size: 36px;
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-tight);
+  text-transform: uppercase;
   color: #fff;
-  line-height: 0.9;
-  letter-spacing: normal;
   margin: 0 0 20px;
 }
 
-.hero-home p:last-child a,
-.hero-home a.button {
-  font-family: lato, sans-serif;
+/* CTA button */
+.hero-home .hero-home-content p:last-child a,
+.hero-home a.button:any-link {
+  font-family: var(--font-family-body);
   font-size: 14.4px;
-  font-weight: 800;
-  color: rgb(66 46 131);
-  background-color: rgb(250 166 51);
-  border-radius: 16px;
+  font-weight: var(--font-weight-extrabold);
+  color: var(--color-brand-purple);
+  background-color: var(--color-accent);
+  border-radius: var(--radius-l);
   padding: 16px 32px;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   line-height: normal;
   border: none;
+  white-space: nowrap;
   transition: background-color 0.2s;
 }
 
-.hero-home p:last-child a:hover,
+.hero-home .hero-home-content p:last-child a:hover,
 .hero-home a.button:hover {
-  background-color: rgb(230 146 31);
+  background-color: var(--color-accent-hover);
 }
 
+/* Desktop styles */
 @media (width >= 900px) {
-  .hero-home p {
-    font-size: 16px;
-  }
-}
-
-@media (width < 900px) {
   .hero-home .hero-home-content {
-    padding: 40px 0 0;
+    padding: 50px 20px 20px;
+    margin: 20px 220px;
   }
 
   .hero-home h1 {
-    font-size: 36px;
-    line-height: 0.9;
+    font-size: 40px;
+    line-height: 36px;
+  }
+
+  .hero-home .hero-home-content p {
+    font-size: 16px;
   }
 }

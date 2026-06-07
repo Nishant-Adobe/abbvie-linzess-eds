@@ -1,33 +1,130 @@
-.columns-doctor-cta > div {
+/* Block: columns-doctor-cta
+ * Two-column tout/CTA card: image left, text + button right.
+ * Sits inside dark-purple-arc section. Card has light background with rounded corners.
+ */
+
+/* Note: This CSS targets .columns.columns-doctor-cta since the variant class
+   is added by columns.js after detecting the doctor-cta content pattern. */
+
+.columns.columns-doctor-cta {
+  background-color: var(--color-background);
+  border-radius: var(--radius-l);
+  overflow: hidden;
+  margin-top: 80px;
+  color: var(--color-text-primary);
+}
+
+/* Row layout - stacked on mobile */
+.columns.columns-doctor-cta > div {
   display: flex;
   flex-direction: column;
 }
 
-.columns-doctor-cta img {
+/* Image cell */
+.columns.columns-doctor-cta > div > div:first-child {
+  position: relative;
+  overflow: hidden;
+}
+
+.columns.columns-doctor-cta > div > div:first-child picture {
+  display: block;
+  line-height: 0;
+}
+
+.columns.columns-doctor-cta > div > div:first-child picture img {
   width: 100%;
-}
-
-.columns-doctor-cta > div > div {
-  order: 1;
-}
-
-.columns-doctor-cta > div > .columns-doctor-cta-img-col {
-  order: 0;
-}
-
-.columns-doctor-cta > div > .columns-doctor-cta-img-col img {
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 
+/* Text cell */
+.columns.columns-doctor-cta > div > div:last-child {
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Body text */
+.columns.columns-doctor-cta > div > div:last-child > p {
+  font-size: var(--body-font-size-m);
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-primary);
+  line-height: normal;
+  margin: 0 0 24px;
+}
+
+/* Button container */
+.columns.columns-doctor-cta > div > div:last-child > p.button-container {
+  margin: 0;
+}
+
+/* "Actor Portrayal" caption - positioned over the image */
+.columns.columns-doctor-cta > div > div:first-child > p:last-child {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  margin: 0;
+  font-size: 12px;
+  line-height: 14px;
+  color: #fff;
+  font-weight: var(--font-weight-regular);
+  white-space: nowrap;
+}
+
+/* Heading */
+.columns.columns-doctor-cta h2 {
+  font-size: 24px;
+  font-weight: var(--font-weight-bold);
+  font-family: var(--font-family-body);
+  color: var(--color-brand-purple);
+  line-height: normal;
+  margin: 0 0 14px;
+}
+
+/* Heading - override .dark-purple-arc section color */
+main .section.dark-purple-arc .columns.columns-doctor-cta h2 {
+  color: var(--color-brand-purple);
+}
+
+/* CTA button - purple background with white text */
+.columns.columns-doctor-cta a.button:any-link {
+  background-color: var(--color-brand-purple);
+  color: #fff;
+  padding: 16px 32px;
+  border-radius: var(--radius-l);
+  font-size: 14.4px;
+  font-weight: var(--font-weight-extrabold);
+  font-family: var(--font-family-body);
+  border: none;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.columns.columns-doctor-cta a.button:hover {
+  background-color: var(--color-brand-purple-mid);
+  color: #fff;
+}
+
+/* Desktop layout */
 @media (width >= 900px) {
-  .columns-doctor-cta > div {
-    align-items: center;
-    flex-direction: unset;
-    gap: 24px;
+  .columns.columns-doctor-cta > div {
+    flex-direction: row;
+    align-items: stretch;
+    min-height: 300px;
   }
 
-  .columns-doctor-cta > div > div {
+  /* Image cell takes ~45% */
+  .columns.columns-doctor-cta > div > div:first-child {
+    flex: 0 0 45%;
+    min-height: 300px;
+  }
+
+  /* Text cell takes remaining space with left padding */
+  .columns.columns-doctor-cta > div > div:last-child {
     flex: 1;
-    order: unset;
+    padding: 24px 40px 24px 80px;
   }
 }
