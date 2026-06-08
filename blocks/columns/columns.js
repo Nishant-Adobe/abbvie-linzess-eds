@@ -37,4 +37,15 @@ export default function decorate(block) {
     link.href = `${window.hlx.codeBasePath}/blocks/columns-doctor-cta/columns-doctor-cta.css`;
     document.head.appendChild(link);
   }
+
+  // Detect quiz variant (CTA cards: "Check My Symptoms" or "Savings & Support" in dark-purple-arc)
+  const hasQuizCta = h2 && (h2.textContent.includes('Check My Symptoms') || h2.textContent.includes('Savings'));
+  const noImage = !block.querySelector('picture');
+  if (hasQuizCta && noImage && !hasDoctorCta && !hasSavingsContent) {
+    block.classList.add('columns-quiz');
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = `${window.hlx.codeBasePath}/blocks/columns-quiz/columns-quiz.css`;
+    document.head.appendChild(link);
+  }
 }

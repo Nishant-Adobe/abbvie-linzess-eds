@@ -1,14 +1,15 @@
 /* Block: cards-article -- article teaser cards
-   Source values from https://www.linzess.com/resources */
+   Source values from https://www.linzess.com/resources
+   Extracted at mobile 375px viewport */
 
 .cards-article > ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 16px;
-  justify-content: center;
+  align-items: center;
 }
 
 .cards-article > ul > li {
@@ -31,6 +32,8 @@
 .cards-article > ul > li img {
   width: 100%;
   height: auto;
+  aspect-ratio: 291 / 169;
+  object-fit: cover;
   display: block;
 }
 
@@ -42,7 +45,7 @@
 }
 
 .cards-article .cards-article-card-body p {
-  font-size: var(--body-font-size-m);
+  font-size: var(--body-font-size-s);
   font-family: var(--font-family-body);
   line-height: normal;
   color: var(--color-text-primary);
@@ -87,8 +90,32 @@
   margin: 0;
 }
 
+/* Tablet: match source layout -- single column with slight side margin */
+@media (width >= 600px) and (width < 900px) {
+  .cards-article > ul {
+    align-items: center;
+  }
+
+  .cards-article > ul > li {
+    max-width: 704px;
+  }
+
+  .cards-article .cards-article-card-body {
+    padding: 20px;
+  }
+}
+
 @media (width >= 900px) {
+  .cards-article > ul {
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+
   .cards-article > ul > li {
     width: 300px;
+  }
+
+  .cards-article .cards-article-card-body p {
+    font-size: var(--body-font-size-m);
   }
 }

@@ -1,7 +1,7 @@
 /* cards-promo block — icon cards (Text / Call / Click sign-up options)
    Pattern: 3 centered icon cards with overlapping icon, heading, body, CTA
-   Mobile: stacked column with large gap
-   Desktop (>=900px): side-by-side row with equal width */
+   Mobile-first: stacked column with 80px gap
+   Desktop (>=900px): side-by-side row with 16px gap */
 
 /* ----- Container ----- */
 
@@ -47,8 +47,8 @@
 }
 
 .cards-promo .cards-promo-image img {
-  width: 105px;
-  height: 105px;
+  width: 96px;
+  height: 96px;
   object-fit: contain;
   display: inline-block;
   margin-top: -50px;
@@ -71,7 +71,7 @@
 /* Heading (first paragraph) */
 .cards-promo .cards-promo-body p:first-child {
   font-family: var(--font-family-body);
-  font-size: 24px;
+  font-size: 18px;
   font-weight: var(--font-weight-bold);
   color: var(--color-brand-purple);
   line-height: normal;
@@ -81,7 +81,7 @@
 /* Body text (second paragraph) */
 .cards-promo .cards-promo-body p:nth-child(2) {
   font-family: var(--font-family-body);
-  font-size: 16px;
+  font-size: 14px;
   font-weight: var(--font-weight-regular);
   color: var(--color-text-primary);
   line-height: normal;
@@ -120,9 +120,9 @@
   color: #fff;
   border: none;
   border-radius: var(--radius-l);
-  padding: 16px 59px 16px 32px;
+  padding: 16px 59px 16px 24px;
   font-family: var(--font-family-body);
-  font-size: 0.9rem;
+  font-size: 14.4px;
   font-weight: var(--font-weight-extrabold);
   text-decoration: none;
   display: inline-block;
@@ -175,5 +175,14 @@
   .cards-promo > ul > li {
     flex: 1;
     padding: 0 28px 40px;
+  }
+
+  .cards-promo .cards-promo-image img {
+    width: 105px;
+    height: 105px;
+  }
+
+  .cards-promo a.button:any-link {
+    padding: 16px 59px 16px 32px;
   }
 }

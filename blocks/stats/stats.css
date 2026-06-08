@@ -1,4 +1,8 @@
-/* Stats Block - Migrated from linzess.com homepage */
+/*
+ * Stats Block - Migrated from linzess.com homepage
+ * Source: .abbv-flex-container-v2.flexbox-cards (dark-purple section)
+ * Mobile-first: base = 375px, desktop = @media (width >= 900px)
+ */
 
 .stats > ul {
   list-style: none;
@@ -11,13 +15,20 @@
 
 .stats > ul > li {
   border-radius: var(--radius-l);
-  padding: 0 16px 40px;
+  padding: 0 16px;
   text-align: center;
   background-color: var(--color-brand-purple-light);
+  width: 100%;
 }
 
 .stats > ul > li:nth-child(even) {
   background-color: var(--color-background);
+}
+
+.stats .stats-card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .stats .stats-card-body p:first-child {

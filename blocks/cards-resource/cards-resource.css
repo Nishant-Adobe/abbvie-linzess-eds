@@ -1,18 +1,20 @@
 /* Block: cards-resource -- Community resource icon cards */
 
+/* Mobile-first: base = 375px mobile, desktop in @media (width >= 900px) */
+
 .cards-resource > ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 80px;
 }
 
 .cards-resource > ul > li {
   background-color: var(--color-brand-purple);
   border-radius: var(--radius-l);
-  padding: 50px 32px 40px;
+  padding: 0 16px 40px;
   text-align: center;
   position: relative;
   overflow: visible;
@@ -27,25 +29,22 @@
 .cards-resource .cards-resource-card-image {
   display: flex;
   justify-content: center;
-  margin-top: -50px;
+  padding-top: 0;
   margin-bottom: 16px;
   line-height: 0;
 }
 
 .cards-resource .cards-resource-card-image picture {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 105px;
-  height: 105px;
-  border-radius: 50%;
-  background-color: var(--color-surface);
-  overflow: hidden;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  overflow: visible;
 }
 
 .cards-resource .cards-resource-card-image img {
-  width: 70px;
+  width: 96px;
   height: auto;
+  margin-top: -50px;
   object-fit: contain;
 }
 
@@ -56,7 +55,7 @@
 
 /* Heading (h2) - dark card: white */
 .cards-resource > ul > li h2 {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: var(--font-weight-bold);
   font-family: var(--font-family-body);
   font-style: normal;
@@ -74,7 +73,7 @@
 
 /* Description paragraph */
 .cards-resource .cards-resource-card-body p {
-  font-size: 16px;
+  font-size: 14px;
   font-family: var(--font-family-body);
   font-weight: var(--font-weight-regular);
   line-height: normal;
@@ -87,16 +86,21 @@
   color: var(--color-text-primary);
 }
 
+/* Hide the empty first paragraph (spacer in authored content) */
+.cards-resource .cards-resource-card-body > p:first-child:empty {
+  display: none;
+}
+
 /* Button container */
 .cards-resource .button-container {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 /* CTA button - dark card: white bg, purple text */
 .cards-resource > ul > li a.button:any-link {
   background-color: var(--color-surface);
   color: var(--color-brand-purple);
-  padding: 16px 32px;
+  padding: 16px 24px;
   border-radius: var(--radius-l);
   font-size: 14.4px;
   font-weight: var(--font-weight-extrabold);
@@ -121,9 +125,23 @@
 @media (width >= 900px) {
   .cards-resource > ul {
     flex-direction: row;
+    gap: 16px;
   }
 
   .cards-resource > ul > li {
     flex: 1 1 0%;
+    padding: 0 32px 40px;
+  }
+
+  .cards-resource > ul > li h2 {
+    font-size: 24px;
+  }
+
+  .cards-resource .cards-resource-card-body p {
+    font-size: 16px;
+  }
+
+  .cards-resource > ul > li a.button:any-link {
+    padding: 16px 32px;
   }
 }

@@ -9,7 +9,9 @@
 /* Block container */
 .hero-resources {
   position: relative;
-  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  min-height: 369px;
   color: #fff;
 }
 
@@ -25,9 +27,9 @@
   position: relative;
   z-index: 1;
   display: flex;
-  align-items: center;
-  min-height: 300px;
-  padding: 50px var(--section-padding-inline) 20px;
+  align-items: flex-end;
+  min-height: 369px;
+  padding: 110px 20px 20px;
 }
 
 .hero-resources > div:first-child > div {
@@ -35,9 +37,10 @@
 }
 
 .hero-resources > div:last-child > div {
-  max-width: 960px;
+  max-width: 100%;
 }
 
+/* Image fills entire block */
 .hero-resources picture {
   display: block;
   height: 100%;
@@ -49,7 +52,7 @@
   object-fit: cover;
 }
 
-/* Eyebrow text (first p) */
+/* Eyebrow text (first p - "Resources") */
 .hero-resources p {
   font-family: var(--font-family-body);
   font-size: 12px;
@@ -82,17 +85,39 @@
   margin: 0;
 }
 
-@media (width >= 900px) {
+/* Tablet: taller hero to show more of the background image */
+@media (width >= 600px) {
   .hero-resources {
-    min-height: 450px;
+    min-height: 500px;
   }
 
   .hero-resources > div:last-child {
-    min-height: 450px;
-    padding: 80px 32px 60px;
+    min-height: 500px;
   }
 
   .hero-resources h1 {
+    line-height: 30px;
+  }
+}
+
+@media (width >= 900px) {
+  .hero-resources {
+    min-height: 614px;
+  }
+
+  .hero-resources > div:last-child {
+    min-height: 614px;
+    padding: 50px 20px 20px;
+    align-items: center;
+  }
+
+  .hero-resources > div:last-child > div {
+    max-width: 960px;
+  }
+
+  .hero-resources h1 {
+    font-size: 40px;
+    line-height: 36px;
     max-width: 600px;
   }
 }

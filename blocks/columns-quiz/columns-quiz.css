@@ -1,31 +1,40 @@
 /* columns-quiz block — bottom navigation CTA section
-   Two side-by-side CTA cards on a dark purple background */
+   Two stacked CTA cards on mobile, side-by-side on desktop.
+   Sits inside a dark-purple-arc section. */
 
+/* Row: vertical stack on mobile with spacing between cards */
 .columns-quiz > div {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
+  gap: 60px;
   text-align: center;
 }
 
+/* Each cell/card */
 .columns-quiz > div > div {
   flex: 1 1 0%;
-  padding: 24px 5px;
+  padding: 0 5px 80px;
+  border-bottom: 1px solid rgb(148 142 190);
+}
+
+/* Last card — no border, no bottom padding */
+.columns-quiz > div > div:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
 }
 
 /* Heading styles */
 .columns-quiz h2 {
   font-family: var(--font-family-body);
-  font-size: 24px;
+  font-size: 18px;
   font-weight: var(--font-weight-bold);
   color: #fff;
   line-height: normal;
-  margin-top: 24px;
-  margin-bottom: 24px;
+  margin: 18px 0;
 }
 
-/* Button styles — override global button styling */
-main .columns-quiz a.button:any-link {
+/* Button styles — override global button and section link color */
+main .section .columns-quiz a.button:any-link {
   font-family: var(--font-family-body);
   font-size: 14.4px;
   font-weight: var(--font-weight-extrabold);
@@ -40,14 +49,15 @@ main .columns-quiz a.button:any-link {
   white-space: nowrap;
 }
 
-main .columns-quiz a.button:hover {
+main .section .columns-quiz a.button:hover {
   background-color: var(--color-accent-hover);
 }
 
-/* Vertical divider between columns — only on desktop */
+/* Desktop: side-by-side with vertical divider */
 @media (width >= 900px) {
   .columns-quiz > div {
     flex-direction: row;
+    gap: 0;
   }
 
   .columns-quiz > div > div {
@@ -56,9 +66,15 @@ main .columns-quiz a.button:hover {
     align-items: center;
     justify-content: center;
     padding: 24px 5px;
+    border-bottom: none;
   }
 
   .columns-quiz > div > div:first-child {
     border-right: 1px solid rgb(148 142 190);
+  }
+
+  .columns-quiz h2 {
+    font-size: 24px;
+    margin: 24px 0;
   }
 }

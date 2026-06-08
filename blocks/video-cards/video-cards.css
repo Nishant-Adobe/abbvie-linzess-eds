@@ -12,7 +12,7 @@
   background-color: var(--color-brand-purple-light);
   border-radius: var(--radius-l);
   overflow: hidden;
-  max-width: 600px;
+  max-width: 100%;
   width: 100%;
 }
 
@@ -47,15 +47,21 @@
   pointer-events: none;
 }
 
-/* Content body below video */
+/* Content body below video -- grid: title + link on row 1, description on row 2 */
 .video-cards .video-cards-card-body {
-  padding: 0 16px 16px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding: 0 10px 16px;
   margin: 0;
+  gap: 0;
 }
 
 /* Title */
 .video-cards .video-cards-card-body h3 {
-  font-size: var(--body-font-size-m);
+  grid-column: 1;
+  grid-row: 1;
+  font-size: var(--body-font-size-s);
   font-weight: var(--font-weight-bold);
   font-family: var(--font-family-body);
   line-height: normal;
@@ -64,13 +70,15 @@
   text-transform: none;
 }
 
-/* Description text */
+/* Description text -- full width below the title/link row */
 .video-cards .video-cards-card-body p {
-  font-size: var(--body-font-size-m);
+  grid-column: 1 / -1;
+  grid-row: 2;
+  font-size: var(--body-font-size-s);
   font-weight: var(--font-weight-regular);
   color: var(--color-text-primary);
   line-height: normal;
-  margin: 16px 0 0;
+  margin: 14px 0 0;
 }
 
 /* Empty paragraph (first child) - hide */
@@ -81,7 +89,9 @@
 
 /* "View Transcript" link - reset button styling to plain link */
 .video-cards .video-cards-card-body p.button-container {
-  margin: 16px 0 0;
+  grid-column: 2;
+  grid-row: 1;
+  margin: 15px 0 0;
 }
 
 main .video-cards .video-cards-card-body a.button:any-link {
@@ -103,28 +113,22 @@ main .video-cards .video-cards-card-body a.button:hover {
   color: var(--color-link-hover);
 }
 
-/* Desktop: title and transcript on same row, description below */
+/* Desktop */
 @media (width >= 900px) {
+  .video-cards > ul > li {
+    max-width: 600px;
+  }
+
   .video-cards .video-cards-card-body {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: center;
-    gap: 0;
+    padding: 0 16px 16px;
   }
 
   .video-cards .video-cards-card-body h3 {
-    grid-column: 1;
-    grid-row: 1;
+    font-size: var(--body-font-size-m);
   }
 
-  .video-cards .video-cards-card-body p.button-container {
-    grid-column: 2;
-    grid-row: 1;
-    margin: 15px 0 0;
-  }
-
-  .video-cards .video-cards-card-body p:not(.button-container) {
-    grid-column: 1 / -1;
-    grid-row: 2;
+  .video-cards .video-cards-card-body p {
+    font-size: var(--body-font-size-m);
+    margin: 16px 0 0;
   }
 }
