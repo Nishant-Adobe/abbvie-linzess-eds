@@ -1,27 +1,134 @@
+/* Block: video-cards -- single video testimonial card */
+
 .video-cards > ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
-  gap: 24px;
+  display: flex;
+  justify-content: center;
 }
 
 .video-cards > ul > li {
-  border: 1px solid #dadada;
-  background-color: var(--background-color);
+  background-color: var(--color-brand-purple-light);
+  border-radius: var(--radius-l);
+  overflow: hidden;
+  max-width: 100%;
+  width: 100%;
 }
 
-.video-cards .video-cards-card-body {
-  margin: 16px;
-}
-
+/* Video thumbnail area */
 .video-cards .video-cards-card-image {
+  position: relative;
   line-height: 0;
 }
 
 .video-cards > ul > li img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
+  display: block;
+}
+
+/* Play button overlay on the image */
+.video-cards .video-cards-card-image::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: rgb(244 246 251 / 80%);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23422e83'%3E%3Cpath d='M8 5v14l11-7z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 24px 24px;
+  pointer-events: none;
+}
+
+/* Content body below video -- grid: title + link on row 1, description on row 2 */
+.video-cards .video-cards-card-body {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding: 0 10px 16px;
+  margin: 0;
+  gap: 0;
+}
+
+/* Title */
+.video-cards .video-cards-card-body h3 {
+  grid-column: 1;
+  grid-row: 1;
+  font-size: var(--body-font-size-s);
+  font-weight: var(--font-weight-bold);
+  font-family: var(--font-family-body);
+  line-height: normal;
+  color: var(--color-brand-purple);
+  margin: 15px 0 0;
+  text-transform: none;
+}
+
+/* Description text -- full width below the title/link row */
+.video-cards .video-cards-card-body p {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  font-size: var(--body-font-size-s);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-primary);
+  line-height: normal;
+  margin: 14px 0 0;
+}
+
+/* Empty paragraph (first child) - hide */
+.video-cards .video-cards-card-body > p:first-child:empty {
+  display: none;
+  margin: 0;
+}
+
+/* "View Transcript" link - reset button styling to plain link */
+.video-cards .video-cards-card-body p.button-container {
+  grid-column: 2;
+  grid-row: 1;
+  margin: 15px 0 0;
+}
+
+main .video-cards .video-cards-card-body a.button:any-link {
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  font-size: var(--body-font-size-xs);
+  font-weight: var(--font-weight-extrabold);
+  color: var(--color-brand-purple);
+  text-decoration: underline;
+  white-space: nowrap;
+  display: inline;
+}
+
+main .video-cards .video-cards-card-body a.button:hover {
+  background-color: transparent;
+  color: var(--color-link-hover);
+}
+
+/* Desktop */
+@media (width >= 900px) {
+  .video-cards > ul > li {
+    max-width: 600px;
+  }
+
+  .video-cards .video-cards-card-body {
+    padding: 0 16px 16px;
+  }
+
+  .video-cards .video-cards-card-body h3 {
+    font-size: var(--body-font-size-m);
+  }
+
+  .video-cards .video-cards-card-body p {
+    font-size: var(--body-font-size-m);
+    margin: 16px 0 0;
+  }
 }

@@ -1,33 +1,139 @@
+/* Block: columns-savings
+ * Savings card tout - image top (mobile) / image left (desktop), text + CTA
+ * Extracted values from source: linzess.com/resources .savings-card-tout
+ * Mobile-first: base = 375px mobile, desktop in @media (width >= 900px)
+ */
+
+/* Container - white card with rounded corners */
+.columns-savings {
+  background-color: var(--color-surface);
+  color: var(--color-text-primary);
+  border-radius: var(--radius-l);
+  overflow: hidden;
+}
+
+/* Row layout - stacked on mobile */
 .columns-savings > div {
   display: flex;
   flex-direction: column;
 }
 
+/* Image column */
+.columns-savings > div > .columns-img-col {
+  padding: 0;
+}
+
 .columns-savings img {
   width: 100%;
-}
-
-.columns-savings > div > div {
-  order: 1;
-}
-
-.columns-savings > div > .columns-savings-img-col {
-  order: 0;
-}
-
-.columns-savings > div > .columns-savings-img-col img {
+  height: auto;
   display: block;
 }
 
+/* Text column - centered on mobile */
+.columns-savings > div > div:not(.columns-img-col) {
+  padding: 16px;
+  text-align: center;
+}
+
+/* Body paragraphs */
+.columns-savings > div > div:not(.columns-img-col) > p {
+  font-size: 14px;
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-regular);
+  line-height: normal;
+  color: var(--color-text-primary);
+  margin: 14px 0;
+}
+
+/* Heading paragraph (first p in text column) */
+.columns-savings > div > div:not(.columns-img-col) > p:first-child {
+  font-size: 18px;
+  font-weight: var(--font-weight-bold);
+  font-family: var(--font-family-body);
+  line-height: normal;
+  color: var(--color-brand-purple);
+  margin: 18px 0;
+}
+
+/* CTA Button - purple bg, white text, rounded */
+.columns-savings a.button:any-link {
+  background-color: var(--color-brand-purple);
+  color: var(--color-surface);
+  padding: 16px 59px 16px 24px;
+  border-radius: var(--radius-l);
+  border: 0;
+  font-size: 14.4px;
+  font-weight: var(--font-weight-extrabold);
+  font-family: var(--font-family-body);
+  line-height: normal;
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.columns-savings a.button:hover {
+  background-color: var(--color-brand-purple-mid);
+  color: var(--color-surface);
+}
+
+/* Secondary link ("Activate now") */
+.columns-savings > div > div:not(.columns-img-col) a:not(.button) {
+  color: var(--color-brand-purple);
+  font-size: 14px;
+  font-weight: var(--font-weight-extrabold);
+  text-decoration: underline;
+}
+
+/* Last paragraph (secondary action text) */
+.columns-savings > div > div:not(.columns-img-col) > p:last-child {
+  font-size: 14px;
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-regular);
+  margin: 14px 0 0;
+}
+
+/* Desktop layout */
 @media (width >= 900px) {
   .columns-savings > div {
+    flex-direction: row;
     align-items: center;
-    flex-direction: unset;
-    gap: 24px;
   }
 
-  .columns-savings > div > div {
+  .columns-savings > div > .columns-img-col {
+    flex: 0 0 44%;
+  }
+
+  .columns-savings > div > div:not(.columns-img-col) {
     flex: 1;
-    order: unset;
+    padding: 0 18px 0 56px;
+    text-align: left;
+  }
+
+  /* Desktop body paragraphs */
+  .columns-savings > div > div:not(.columns-img-col) > p {
+    font-size: 16px;
+    margin: 16px 0;
+  }
+
+  /* Desktop heading paragraph */
+  .columns-savings > div > div:not(.columns-img-col) > p:first-child {
+    font-size: 24px;
+    margin: 24px 0;
+  }
+
+  /* Desktop button padding */
+  .columns-savings a.button:any-link {
+    padding: 16px 59px 16px 32px;
+  }
+
+  /* Desktop secondary link */
+  .columns-savings > div > div:not(.columns-img-col) a:not(.button) {
+    font-size: 16px;
+  }
+
+  /* Desktop last paragraph */
+  .columns-savings > div > div:not(.columns-img-col) > p:last-child {
+    font-size: 16px;
+    margin: 16px 0 0;
   }
 }

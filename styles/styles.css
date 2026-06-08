@@ -354,3 +354,25 @@ main .section.dark h6 {
 main .section.dark a:any-link {
   color: var(--color-footer-text);
 }
+
+main .section.dark-purple-arc {
+  background-color: var(--color-brand-purple);
+  color: var(--color-footer-text);
+  margin: 0;
+  padding: 20px 0 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+main .section.dark-purple-arc h1,
+main .section.dark-purple-arc h2,
+main .section.dark-purple-arc h3,
+main .section.dark-purple-arc h4,
+main .section.dark-purple-arc h5,
+main .section.dark-purple-arc h6 {
+  color: var(--color-heading-light);
+}
+
+main .section.dark-purple-arc a:any-link {
+  color: var(--color-footer-text);
+}
