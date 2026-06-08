@@ -5,12 +5,8 @@
 
 /* ----- Container ----- */
 
-/* Override global .icon styles when .icon is applied to the block itself */
-.cards-promo.block {
+.cards-promo {
   margin-top: 80px;
-  display: block;
-  width: 100%;
-  height: auto;
 }
 
 .cards-promo > ul {
